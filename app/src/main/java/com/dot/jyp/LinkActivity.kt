@@ -13,9 +13,10 @@ class LinkActivity : AppCompatActivity() {
         setContentView(R.layout.activity_link)
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
-        var btn_create = findViewById<Button>(R.id.btn_lobby_create)
-        btn_create.setOnClickListener{
-
+        var btn_enter = findViewById<Button>(R.id.btn_link_enter)
+        btn_enter.setOnClickListener{
+            val intent = Intent(this, SelectMenuActivity::class.java)
+            startActivity(intent)
         }
     }
 }
