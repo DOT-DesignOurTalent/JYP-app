@@ -75,7 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="이용약관 동의"
-            android:background="@null"/>
+            android:background="@null"
+            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
     
     <Button
@@ -84,6 +85,7 @@
         android:layout_height="wrap_content"
         android:text="이용약관 보기"
         android:background="@null"
+        style="?android:attr/borderlessButtonStyle"
         app:layout_constraintTop_toBottomOf="@id/register_btn"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/register_agree_TOS_ll"/>

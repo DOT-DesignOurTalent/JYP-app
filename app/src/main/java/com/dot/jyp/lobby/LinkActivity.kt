@@ -1,11 +1,12 @@
-package com.dot.jyp
+package com.dot.jyp.lobby
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
-import android.widget.TextView
+import com.dot.jyp.R
+import com.dot.jyp.game.SelectMenuActivity
 
 class LinkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

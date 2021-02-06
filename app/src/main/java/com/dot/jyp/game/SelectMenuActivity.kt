@@ -1,8 +1,9 @@
-package com.dot.jyp
+package com.dot.jyp.game
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import com.dot.jyp.R
 
 class SelectMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -18,17 +18,18 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.dot.jyp.SelectMenuActivity" />
-        <activity android:name="com.dot.jyp.register.RegisterActivity" />
-        <activity android:name="com.dot.jyp.login.LoginActivity" />
-        <activity android:name="com.dot.jyp.IntroActivity" />
-        <activity android:name="com.dot.jyp.LinkActivity" />
-        <activity android:name="com.dot.jyp.LobbyActivity" >
+        <activity android:name="com.dot.jyp.login.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.dot.jyp.game.SelectMenuActivity" />
+        <activity android:name="com.dot.jyp.register.RegisterActivity" />
+        <activity android:name="com.dot.jyp.IntroActivity" />
+        <activity android:name="com.dot.jyp.lobby.LinkActivity" />
+        <activity android:name="com.dot.jyp.lobby.LobbyActivity" >
         </activity>
     </application>
 
