@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".register.RegisterActivity">
+
+    <ImageView
+        android:id="@+id/register_logo_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/colorMainBlue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/register_email_edittext"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <EditText
+        android:id="@+id/register_email_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이메일"
+        app:layout_constraintTop_toBottomOf="@id/register_logo_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/register_pwd_edittext"/>
+    <EditText
+        android:id="@+id/register_pwd_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="패스워드"
+        app:layout_constraintTop_toBottomOf="@id/register_email_edittext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/register_pwd2_edittext"/>
+    <EditText
+        android:id="@+id/register_pwd2_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="패스워드 확인"
+        app:layout_constraintTop_toBottomOf="@id/register_pwd_edittext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/register_btn"/>
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        app:layout_constraintTop_toBottomOf="@id/register_pwd2_edittext"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/register_agree_TOS_ll"/>
+    
+    <LinearLayout
+        android:id="@+id/register_agree_TOS_ll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/register_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/register_look_TOS_btn"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <ImageView
+            android:id="@+id/register_agree_TOS_img"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorMainBlue"/>
+        <Button
+            android:id="@+id/register_agree_TOS_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이용약관 동의"
+            android:background="@null"
+            style="?android:attr/borderlessButtonStyle"/>
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/register_look_TOS_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="이용약관 보기"
+        android:background="@null"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintTop_toBottomOf="@id/register_btn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/register_agree_TOS_ll"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
