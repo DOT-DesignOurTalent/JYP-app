@@ -4,24 +4,24 @@
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\drawable\\ic_select_menu_background.png"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_link.xml.flat",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_link.xml"
-    },
-    {
         "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_gray_200.xml.flat",
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\drawable\\btn_gray_200.xml"
+    },
+    {
+        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_link.xml.flat",
+        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_link.xml"
     },
     {
         "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_lobby_icon.png.flat",
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\drawable\\ic_lobby_icon.png"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
-    },
-    {
         "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
         "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",

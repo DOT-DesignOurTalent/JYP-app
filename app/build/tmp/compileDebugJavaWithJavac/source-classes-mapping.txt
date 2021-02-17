@@ -1,0 +1,16 @@
+com/dot/jyp/databinding/ActivityLobbyBinding.java
+ com.dot.jyp.databinding.ActivityLobbyBinding
+com/dot/jyp/databinding/ActivitySelectMenuBinding.java
+ com.dot.jyp.databinding.ActivitySelectMenuBinding
+com/dot/jyp/databinding/ActivityIntroBinding.java
+ com.dot.jyp.databinding.ActivityIntroBinding
+com/dot/jyp/databinding/DialogRegisterTosBinding.java
+ com.dot.jyp.databinding.DialogRegisterTosBinding
+com/dot/jyp/databinding/ActivityLoginBinding.java
+ com.dot.jyp.databinding.ActivityLoginBinding
+com/dot/jyp/BuildConfig.java
+ com.dot.jyp.BuildConfig
+com/dot/jyp/databinding/ActivityRegisterBinding.java
+ com.dot.jyp.databinding.ActivityRegisterBinding
+com/dot/jyp/databinding/ActivityLinkBinding.java
+ com.dot.jyp.databinding.ActivityLinkBinding
