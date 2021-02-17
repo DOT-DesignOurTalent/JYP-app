@@ -23,9 +23,6 @@ class RegisterActivity : AppCompatActivity() {
 
         // 임시 회원가입 : register -> login
         binding.registerBtn.setOnClickListener {
-//            val email = binding.registerEmailEdittext.text
-//            val password = binding.registerPwdEdittext.text
-//            val call = RetrofitSingleTon.service.signUp("email","password")
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)
         }
