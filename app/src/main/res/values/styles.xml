@@ -7,4 +7,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--BUTTON-->
+    <style name="BUTTON_MAIN">
+        <item name="android:textSize">24dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    <style name="BUTTON_MAIN_ACTIVE" parent="BUTTON_MAIN">
+        <item name="android:background">@drawable/btn_blue_200</item>
+    </style>
+    <style name="BUTTON_MAIN_INACTIVE" parent="BUTTON_MAIN">
+        <item name="android:background">@drawable/btn_black_200</item>
+    </style>
+
+
 </resources>
