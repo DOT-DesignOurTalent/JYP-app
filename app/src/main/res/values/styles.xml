@@ -20,5 +20,27 @@
         <item name="android:background">@drawable/btn_black_200</item>
     </style>
 
+    <!-- EDITTEXT -->
+    <style name="EDITTEXT_MAIN">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:background">@drawable/edit_activate</item>
+    </style>
+    <style name="EDITTEXT_AVAILABLE" parent="EDITTEXT_MAIN">
+        <item name="android:background">@drawable/edit_available</item>
+    </style>
+    <style name="EDITTEXT_WRONG" parent="EDITTEXT_MAIN">
+        <item name="android:background">@drawable/edit_wrong</item>
+    </style>
+
+    <!-- TEXTVIEW -->
+    <style name="TEXT_LOGIN_REGISTER">
+        <item name="android:textColor">@color/colorMainBlue</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    <style name="TEXT_LOGIN_REGISTER_WRONG" parent="TEXT_LOGIN_REGISTER">
+        <item name="android:textColor">@color/colorWrongOrange</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>
