@@ -27,10 +27,6 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(loginIntent)
         }
 
-        binding.registerLookTOSBtn.setOnClickListener {
-            val tosDialog = LayoutInflater.from(this).inflate(R.layout.dialog_register_tos, null)
-            val tosBuilder = AlertDialog.Builder(this).setView(tosDialog)
-            tosBuilder.show()
-        }
+
     }
 }

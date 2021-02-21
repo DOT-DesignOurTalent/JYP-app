@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">법과점심</string>
+    <string name="app_start_title">오늘의 점심 판결이\n시작됩니다.</string>
+    <string name="app_start_title2">법점을 통해 점심 메뉴를 선정해보세요.</string>
     <string name="tos1">이용약관 내용이 들어갑니다. 이용약관 내용이 들어갑니다. 이용약관 내용이 들어갑니다. 이용약관 내용이 들어갑니다.
     이용약관 내용이 들어갑니다. 이용약관 내용이 들어갑니다. 이용약관 내용이 들어갑니다. 이용약관 내용이 들어갑니다.</string>
     <string name="tos2">이용약관 내용이 들어갑니다.</string>

@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginRight="50dp"
+    android:layout_marginLeft="50dp"
     tools:context=".login.LoginActivity">
 
     <ImageView
@@ -14,15 +16,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/login_email_edittext"
+        app:layout_constraintBottom_toTopOf="@id/text_login_email"
         app:layout_constraintVertical_chainStyle="packed"/>
 
+    <TextView
+        android:id="@+id/text_login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TEXT_LOGIN_REGISTER"
+        android:text="이메일"
+        app:layout_constraintTop_toBottomOf="@id/login_logo_img"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/login_email_edittext"/>
     <EditText
         android:id="@+id/login_email_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="이메일"
-        app:layout_constraintTop_toBottomOf="@id/login_logo_img"
+        style="@style/EDITTEXT_AVAILABLE"
+        app:layout_constraintTop_toBottomOf="@id/text_login_email"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_login_pwd"/>
+
+    <TextView
+        android:id="@+id/text_login_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TEXT_LOGIN_REGISTER"
+        android:text="비밀번호"
+        app:layout_constraintTop_toBottomOf="@id/login_email_edittext"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/login_pwd_edittext"/>
@@ -31,7 +55,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="패스워드"
-        app:layout_constraintTop_toBottomOf="@id/login_email_edittext"
+        style="@style/EDITTEXT_MAIN"
+        app:layout_constraintTop_toBottomOf="@id/text_login_pwd"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_login_wrong"/>
+
+    <TextView
+        android:id="@+id/text_login_wrong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TEXT_LOGIN_REGISTER_WRONG"
+        app:layout_constraintTop_toBottomOf="@id/login_pwd_edittext"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/login_btn"/>
@@ -41,7 +76,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="로그인"
-        app:layout_constraintTop_toBottomOf="@id/login_pwd_edittext"
+        style="@style/BUTTON_MAIN_INACTIVE"
+        app:layout_constraintTop_toBottomOf="@id/text_login_wrong"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/login_auto_ll"/>
@@ -65,6 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="자동 로그인"
+            style="@style/TEXT_LOGIN_REGISTER"
             android:background="@null"/>
     </LinearLayout>
 
@@ -73,6 +110,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="비밀번호 찾기"
+        style="@style/TEXT_LOGIN_REGISTER"
         android:background="@null"
         app:layout_constraintTop_toBottomOf="@id/login_btn"
         app:layout_constraintRight_toRightOf="parent"
@@ -84,6 +122,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="계정이 아직 없으신가요?"
+        style="@style/TEXT_LOGIN_REGISTER"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/login_auto_ll"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -93,19 +133,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원 가입"
+        style="@style/BUTTON_MAIN_ACTIVE"
         app:layout_constraintTop_toBottomOf="@id/login_no_account_text"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/login_non_member_btn"/>
-    <Button
-        android:id="@+id/login_non_member_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="비회원 로그인"
-        app:layout_constraintTop_toBottomOf="@id/login_register_btn"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
