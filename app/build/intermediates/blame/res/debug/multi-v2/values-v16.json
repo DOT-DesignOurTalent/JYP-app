@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\lg\\AndroidStudioProjects\\JYPAPP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\lg\\.gradle\\caches\\transforms-2\\files-2.1\\95b1ba999c585297833bbfda1cc307e4\\core-1.3.2\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\cksdi\\.gradle\\caches\\transforms-2\\files-2.1\\95b1ba999c585297833bbfda1cc307e4\\core-1.3.2\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\lg\\.gradle\\caches\\transforms-2\\files-2.1\\b68f176dc2e6819a41b19b11701634f4\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\cksdi\\.gradle\\caches\\transforms-2\\files-2.1\\b68f176dc2e6819a41b19b11701634f4\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

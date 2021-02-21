@@ -3,12 +3,14 @@ package com.dot.jyp.register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import com.dot.jyp.R
 import com.dot.jyp.databinding.ActivityLoginBinding
 import com.dot.jyp.databinding.ActivityRegisterBinding
 import com.dot.jyp.login.LoginActivity
+import com.dot.jyp.server.RetrofitSingleTon
 
 class RegisterActivity : AppCompatActivity() {
 

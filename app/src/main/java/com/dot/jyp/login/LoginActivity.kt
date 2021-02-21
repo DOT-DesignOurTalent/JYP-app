@@ -22,10 +22,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(lobbyIntent)
         }
         // 임시 비회원 로그인 : login -> lobby
-        binding.loginNonMemberBtn.setOnClickListener {
-            val lobbyIntent = Intent(this, LobbyActivity::class.java)
-            startActivity(lobbyIntent)
-        }
+//        binding.loginNonMemberBtn.setOnClickListener {
+//            val lobbyIntent = Intent(this, LobbyActivity::class.java)
+//            startActivity(lobbyIntent)
+//        }
 
         // login -> register
         binding.loginRegisterBtn.setOnClickListener {
