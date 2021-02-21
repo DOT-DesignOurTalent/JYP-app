@@ -1844,6 +1844,7 @@ id clip_vertical
 id clockwise
 id collapseActionView
 id confirm_button
+id constraint_item_select_menu_layout
 id constraint_select_menu_layout
 id container
 id content
@@ -2045,6 +2046,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_select_menu_dialog
 id register_agree_TOS_btn
 id register_agree_TOS_img
 id register_agree_TOS_ll
@@ -2139,6 +2141,8 @@ id textTop
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_item_select_menu_category
+id text_item_select_menu_restaurants
 id text_link_comment
 id text_lobby_comment
 id text_select_menu_comment
@@ -2266,6 +2270,8 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_register_tos
+layout dialog_select_menu
+layout item_select_menu
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

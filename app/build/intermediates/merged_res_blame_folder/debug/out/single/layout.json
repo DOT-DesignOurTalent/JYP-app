@@ -8,6 +8,10 @@
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_register.xml"
     },
     {
+        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_start.xml",
+        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_start.xml"
+    },
+    {
         "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_link.xml",
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_link.xml"
     },
@@ -24,7 +28,15 @@
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\dialog_register_tos.xml"
     },
     {
+        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_select_menu.xml",
+        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\item_select_menu.xml"
+    },
+    {
         "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
         "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_select_menu.xml",
+        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\dialog_select_menu.xml"
     }
 ]

@@ -9,12 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dot.jyp.R
 import com.dot.jyp.model.KakaoSearchResult
 import com.dot.jyp.server.RetrofitSingleTon.kakaoService
@@ -28,7 +32,7 @@ import retrofit2.Retrofit
 
 class SelectMenuActivity : AppCompatActivity() {
     private val TAG = "SelectMenuActivity"
-
+    private lateinit var items : ArrayList<RestaurantInformation>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_menu)
@@ -74,9 +78,12 @@ class SelectMenuActivity : AppCompatActivity() {
                         response: Response<KakaoSearchResult>
                     ) {
                         val list = response.body()!!.documents
+                        items = ArrayList<RestaurantInformation>()
                         for(document in list){
+                            items.add(RestaurantInformation(document.category_name, document.place_name))
                             Log.e(TAG,"[카테고리 : ${document.category_name}] [식당이름 : ${document.place_name}]")
                         }
+                        showDialog()
                     }
 
                     override fun onFailure(call: Call<KakaoSearchResult>, t: Throwable) {
@@ -85,5 +92,30 @@ class SelectMenuActivity : AppCompatActivity() {
                 })
             }
         }
+    }
+    fun showDialog(){
+
+        val inflater = LayoutInflater.from(this)
+        val view: View = inflater.inflate(R.layout.dialog_select_menu, null)
+        val builder = AlertDialog.Builder(this)
+        builder.setView(view)
+        val dialog = builder.create()
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_select_menu_dialog)
+        val selectMenuListAdapter = SelectMenuListAdapter(items)
+        val layoutManager = LinearLayoutManager(baseContext)
+        recyclerView.adapter = selectMenuListAdapter
+        recyclerView.layoutManager = layoutManager
+
+        Log.e(TAG, "size : ${items.size}")
+        selectMenuListAdapter.setItemClickListener(object : SelectMenuListAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                Toast.makeText(baseContext, items.get(position).restaurant,Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+
+        })
+
+        dialog.setCanceledOnTouchOutside(true)
+        dialog.show()
     }
 }
