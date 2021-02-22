@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -25,21 +26,39 @@ public final class ActivityLobbyBinding implements ViewBinding {
   public final Button btnLobbyCreate;
 
   @NonNull
+  public final Button btnLobbyEnterCode;
+
+  @NonNull
+  public final EditText edittextLobbyCode;
+
+  @NonNull
   public final ImageView imageLobbyIcon;
 
   @NonNull
   public final TextView textLobbyComment;
 
   @NonNull
+  public final TextView textLobbyComment2;
+
+  @NonNull
+  public final TextView textLobbyTip;
+
+  @NonNull
   public final Toolbar toolbarLobbyActionbar;
 
   private ActivityLobbyBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnLobbyCreate,
+      @NonNull Button btnLobbyEnterCode, @NonNull EditText edittextLobbyCode,
       @NonNull ImageView imageLobbyIcon, @NonNull TextView textLobbyComment,
+      @NonNull TextView textLobbyComment2, @NonNull TextView textLobbyTip,
       @NonNull Toolbar toolbarLobbyActionbar) {
     this.rootView = rootView;
     this.btnLobbyCreate = btnLobbyCreate;
+    this.btnLobbyEnterCode = btnLobbyEnterCode;
+    this.edittextLobbyCode = edittextLobbyCode;
     this.imageLobbyIcon = imageLobbyIcon;
     this.textLobbyComment = textLobbyComment;
+    this.textLobbyComment2 = textLobbyComment2;
+    this.textLobbyTip = textLobbyTip;
     this.toolbarLobbyActionbar = toolbarLobbyActionbar;
   }
 
@@ -76,6 +95,18 @@ public final class ActivityLobbyBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_lobby_enter_code;
+      Button btnLobbyEnterCode = rootView.findViewById(id);
+      if (btnLobbyEnterCode == null) {
+        break missingId;
+      }
+
+      id = R.id.edittext_lobby_code;
+      EditText edittextLobbyCode = rootView.findViewById(id);
+      if (edittextLobbyCode == null) {
+        break missingId;
+      }
+
       id = R.id.image_lobby_icon;
       ImageView imageLobbyIcon = rootView.findViewById(id);
       if (imageLobbyIcon == null) {
@@ -88,14 +119,27 @@ public final class ActivityLobbyBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.text_lobby_comment2;
+      TextView textLobbyComment2 = rootView.findViewById(id);
+      if (textLobbyComment2 == null) {
+        break missingId;
+      }
+
+      id = R.id.text_lobby_tip;
+      TextView textLobbyTip = rootView.findViewById(id);
+      if (textLobbyTip == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar_lobby_actionbar;
       Toolbar toolbarLobbyActionbar = rootView.findViewById(id);
       if (toolbarLobbyActionbar == null) {
         break missingId;
       }
 
-      return new ActivityLobbyBinding((ConstraintLayout) rootView, btnLobbyCreate, imageLobbyIcon,
-          textLobbyComment, toolbarLobbyActionbar);
+      return new ActivityLobbyBinding((ConstraintLayout) rootView, btnLobbyCreate,
+          btnLobbyEnterCode, edittextLobbyCode, imageLobbyIcon, textLobbyComment, textLobbyComment2,
+          textLobbyTip, toolbarLobbyActionbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

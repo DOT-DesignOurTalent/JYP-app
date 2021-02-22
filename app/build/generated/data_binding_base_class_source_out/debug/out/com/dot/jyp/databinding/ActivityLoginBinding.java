@@ -47,20 +47,27 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final TextView loginNoAccountText;
 
   @NonNull
-  public final Button loginNonMemberBtn;
-
-  @NonNull
   public final EditText loginPwdEdittext;
 
   @NonNull
   public final Button loginRegisterBtn;
 
+  @NonNull
+  public final TextView textLoginEmail;
+
+  @NonNull
+  public final TextView textLoginPwd;
+
+  @NonNull
+  public final TextView textLoginWrong;
+
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull Button loginAutoBtn,
       @NonNull ImageView loginAutoImg, @NonNull LinearLayout loginAutoLl, @NonNull Button loginBtn,
       @NonNull EditText loginEmailEdittext, @NonNull Button loginFindPwdBtn,
       @NonNull ImageView loginLogoImg, @NonNull TextView loginNoAccountText,
-      @NonNull Button loginNonMemberBtn, @NonNull EditText loginPwdEdittext,
-      @NonNull Button loginRegisterBtn) {
+      @NonNull EditText loginPwdEdittext, @NonNull Button loginRegisterBtn,
+      @NonNull TextView textLoginEmail, @NonNull TextView textLoginPwd,
+      @NonNull TextView textLoginWrong) {
     this.rootView = rootView;
     this.loginAutoBtn = loginAutoBtn;
     this.loginAutoImg = loginAutoImg;
@@ -70,9 +77,11 @@ public final class ActivityLoginBinding implements ViewBinding {
     this.loginFindPwdBtn = loginFindPwdBtn;
     this.loginLogoImg = loginLogoImg;
     this.loginNoAccountText = loginNoAccountText;
-    this.loginNonMemberBtn = loginNonMemberBtn;
     this.loginPwdEdittext = loginPwdEdittext;
     this.loginRegisterBtn = loginRegisterBtn;
+    this.textLoginEmail = textLoginEmail;
+    this.textLoginPwd = textLoginPwd;
+    this.textLoginWrong = textLoginWrong;
   }
 
   @Override
@@ -150,12 +159,6 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.login_non_member_btn;
-      Button loginNonMemberBtn = rootView.findViewById(id);
-      if (loginNonMemberBtn == null) {
-        break missingId;
-      }
-
       id = R.id.login_pwd_edittext;
       EditText loginPwdEdittext = rootView.findViewById(id);
       if (loginPwdEdittext == null) {
@@ -168,9 +171,28 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.text_login_email;
+      TextView textLoginEmail = rootView.findViewById(id);
+      if (textLoginEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.text_login_pwd;
+      TextView textLoginPwd = rootView.findViewById(id);
+      if (textLoginPwd == null) {
+        break missingId;
+      }
+
+      id = R.id.text_login_wrong;
+      TextView textLoginWrong = rootView.findViewById(id);
+      if (textLoginWrong == null) {
+        break missingId;
+      }
+
       return new ActivityLoginBinding((ConstraintLayout) rootView, loginAutoBtn, loginAutoImg,
           loginAutoLl, loginBtn, loginEmailEdittext, loginFindPwdBtn, loginLogoImg,
-          loginNoAccountText, loginNonMemberBtn, loginPwdEdittext, loginRegisterBtn);
+          loginNoAccountText, loginPwdEdittext, loginRegisterBtn, textLoginEmail, textLoginPwd,
+          textLoginWrong);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

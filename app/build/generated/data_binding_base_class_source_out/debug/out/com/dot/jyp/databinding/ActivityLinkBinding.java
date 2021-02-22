@@ -22,28 +22,24 @@ public final class ActivityLinkBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnLinkCopy;
+  public final TextView btnLinkCopy;
 
   @NonNull
   public final Button btnLinkEnter;
 
   @NonNull
-  public final ImageView imageLinkLetter;
-
-  @NonNull
-  public final TextView textLinkComment;
+  public final ImageView imageLinkClose;
 
   @NonNull
   public final Toolbar toolbarLinkActionbar;
 
-  private ActivityLinkBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnLinkCopy,
-      @NonNull Button btnLinkEnter, @NonNull ImageView imageLinkLetter,
-      @NonNull TextView textLinkComment, @NonNull Toolbar toolbarLinkActionbar) {
+  private ActivityLinkBinding(@NonNull ConstraintLayout rootView, @NonNull TextView btnLinkCopy,
+      @NonNull Button btnLinkEnter, @NonNull ImageView imageLinkClose,
+      @NonNull Toolbar toolbarLinkActionbar) {
     this.rootView = rootView;
     this.btnLinkCopy = btnLinkCopy;
     this.btnLinkEnter = btnLinkEnter;
-    this.imageLinkLetter = imageLinkLetter;
-    this.textLinkComment = textLinkComment;
+    this.imageLinkClose = imageLinkClose;
     this.toolbarLinkActionbar = toolbarLinkActionbar;
   }
 
@@ -75,7 +71,7 @@ public final class ActivityLinkBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_link_copy;
-      Button btnLinkCopy = rootView.findViewById(id);
+      TextView btnLinkCopy = rootView.findViewById(id);
       if (btnLinkCopy == null) {
         break missingId;
       }
@@ -86,15 +82,9 @@ public final class ActivityLinkBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.image_link_letter;
-      ImageView imageLinkLetter = rootView.findViewById(id);
-      if (imageLinkLetter == null) {
-        break missingId;
-      }
-
-      id = R.id.text_link_comment;
-      TextView textLinkComment = rootView.findViewById(id);
-      if (textLinkComment == null) {
+      id = R.id.image_link_close;
+      ImageView imageLinkClose = rootView.findViewById(id);
+      if (imageLinkClose == null) {
         break missingId;
       }
 
@@ -105,7 +95,7 @@ public final class ActivityLinkBinding implements ViewBinding {
       }
 
       return new ActivityLinkBinding((ConstraintLayout) rootView, btnLinkCopy, btnLinkEnter,
-          imageLinkLetter, textLinkComment, toolbarLinkActionbar);
+          imageLinkClose, toolbarLinkActionbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

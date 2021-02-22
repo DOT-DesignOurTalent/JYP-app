@@ -22,24 +22,23 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.dot.jyp.login.LoginActivity" >
+        <activity android:name="com.dot.jyp.IntroActivity" />
+        <activity android:name="com.dot.jyp.login.StartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.dot.jyp.login.LoginActivity" />
+        <activity android:name="com.dot.jyp.lobby.LinkActivity" />
+        <activity android:name="com.dot.jyp.lobby.LobbyActivity" />
         <activity android:name="com.dot.jyp.game.SelectMenuActivity" />
         <activity android:name="com.dot.jyp.register.RegisterActivity" />
         <activity android:name="com.dot.jyp.IntroActivity" />
         <activity android:name="com.dot.jyp.lobby.LinkActivity" />
         <activity android:name="com.dot.jyp.lobby.LobbyActivity" >
         </activity>
-
-        <meta-data
-            android:name="com.kakao.sdk.AppKey"
-            android:value="539da2751b92dd18182228ca3652cdc2" />
-
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

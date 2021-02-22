@@ -36,7 +36,6 @@ class SelectMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_menu)
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         findViewById<LinearLayout>(R.id.linear_select_menu_layout).setOnClickListener {
             getRestaurants()
         }

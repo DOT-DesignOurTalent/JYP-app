@@ -21,7 +21,7 @@
 13-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:6:22-78
 14
 15    <application
-15-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:7:5-27:19
+15-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:7:5-32:19
 16        android:allowBackup="true"
 16-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:8:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -38,59 +38,63 @@
 23        android:testOnly="true"
 24        android:theme="@style/AppTheme" >
 24-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:13:9-40
-25        <activity android:name="com.dot.jyp.login.LoginActivity" >
-25-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:14:9-19:20
-25-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:14:19-54
-26            <intent-filter>
-26-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:15:13-18:29
-27                <action android:name="android.intent.action.MAIN" />
-27-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:16:17-69
-27-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:16:25-66
-28
-29                <category android:name="android.intent.category.LAUNCHER" />
-29-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:17:17-77
-29-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:17:27-74
-30            </intent-filter>
-31        </activity>
-32        <activity android:name="com.dot.jyp.game.SelectMenuActivity" />
-32-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:20:9-60
-32-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:20:19-58
-33        <activity android:name="com.dot.jyp.register.RegisterActivity" />
-33-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:21:9-63
-33-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:21:19-60
-34        <activity android:name="com.dot.jyp.IntroActivity" />
-34-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:22:9-51
-34-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:22:19-48
-35        <activity android:name="com.dot.jyp.lobby.LinkActivity" />
-35-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:23:9-56
-35-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:23:19-53
-36        <activity android:name="com.dot.jyp.lobby.LobbyActivity" >
-36-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:24:9-25:20
-36-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:24:19-54
-37        </activity>
-38
-39        <meta-data
-39-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:26:9-106
-40            android:name="com.kakao.sdk.AppKey"
-40-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:26:20-55
-41            android:value="539da2751b92dd18182228ca3652cdc2" />
-41-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:26:56-104
-42
-43        <activity
-43-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:23:9-26:75
-44            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-44-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:24:13-79
-45            android:exported="false"
-45-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:25:13-37
-46            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-46-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:26:13-72
-47
-48        <meta-data
-48-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\a35d0f9cc6faba5611d0fd5f5632f62b\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
-49            android:name="com.google.android.gms.version"
-49-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\a35d0f9cc6faba5611d0fd5f5632f62b\jetified-play-services-basement-17.3.0\AndroidManifest.xml:24:13-58
-50            android:value="@integer/google_play_services_version" />
-50-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\a35d0f9cc6faba5611d0fd5f5632f62b\jetified-play-services-basement-17.3.0\AndroidManifest.xml:25:13-66
-51    </application>
-52
-53</manifest>
+25        <activity android:name="com.dot.jyp.IntroActivity" />
+25-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:14:9-51
+25-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:14:19-48
+26        <activity android:name="com.dot.jyp.login.StartActivity" >
+26-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:15:9-21:20
+26-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:15:19-54
+27            <intent-filter>
+27-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:16:13-20:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:17:17-69
+28-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:17:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:19:17-77
+30-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:19:27-74
+31            </intent-filter>
+32        </activity>
+33        <activity android:name="com.dot.jyp.login.LoginActivity" />
+33-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:22:9-56
+33-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:22:19-54
+34        <activity android:name="com.dot.jyp.lobby.LinkActivity" />
+34-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:23:9-56
+34-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:23:19-53
+35        <activity android:name="com.dot.jyp.lobby.LobbyActivity" />
+35-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:24:9-66
+35-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:24:19-54
+36        <activity android:name="com.dot.jyp.game.SelectMenuActivity" />
+36-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:25:9-61
+36-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:25:19-58
+37        <activity android:name="com.dot.jyp.register.RegisterActivity" />
+37-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:26:9-63
+37-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:26:19-60
+38        <activity android:name="com.dot.jyp.IntroActivity" />
+38-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:14:9-51
+38-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:14:19-48
+39        <activity android:name="com.dot.jyp.lobby.LinkActivity" />
+39-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:23:9-56
+39-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:23:19-53
+40        <activity android:name="com.dot.jyp.lobby.LobbyActivity" >
+40-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:24:9-66
+40-->C:\Project\JYP-app\app\src\main\AndroidManifest.xml:24:19-54
+41        </activity>
+42        <activity
+42-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:23:9-26:75
+43            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+43-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:24:13-79
+44            android:exported="false"
+44-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:25:13-37
+45            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+45-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\ff2ad683a3ee946af3c4282f24f311a7\jetified-play-services-base-17.3.0\AndroidManifest.xml:26:13-72
+46
+47        <meta-data
+47-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\a35d0f9cc6faba5611d0fd5f5632f62b\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
+48            android:name="com.google.android.gms.version"
+48-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\a35d0f9cc6faba5611d0fd5f5632f62b\jetified-play-services-basement-17.3.0\AndroidManifest.xml:24:13-58
+49            android:value="@integer/google_play_services_version" />
+49-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\cksdi\.gradle\caches\transforms-2\files-2.1\a35d0f9cc6faba5611d0fd5f5632f62b\jetified-play-services-basement-17.3.0\AndroidManifest.xml:25:13-66
+50    </application>
+51
+52</manifest>

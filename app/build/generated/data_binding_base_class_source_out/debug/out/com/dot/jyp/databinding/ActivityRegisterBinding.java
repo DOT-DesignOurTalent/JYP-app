@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,13 +23,13 @@ public final class ActivityRegisterBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button registerAgreeTOSBtn;
+  public final Button btnRegisterEmailCheck;
 
   @NonNull
-  public final ImageView registerAgreeTOSImg;
+  public final LinearLayout llRegisterEmail;
 
   @NonNull
-  public final LinearLayout registerAgreeTOSLl;
+  public final LinearLayout llRegisterPwd;
 
   @NonNull
   public final Button registerBtn;
@@ -40,30 +41,39 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final ImageView registerLogoImage;
 
   @NonNull
-  public final Button registerLookTOSBtn;
-
-  @NonNull
   public final EditText registerPwd2Edittext;
 
   @NonNull
   public final EditText registerPwdEdittext;
 
+  @NonNull
+  public final TextView textRegisterEmail;
+
+  @NonNull
+  public final TextView textRegisterEmailWrong;
+
+  @NonNull
+  public final TextView textRegisterPwd;
+
   private ActivityRegisterBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button registerAgreeTOSBtn, @NonNull ImageView registerAgreeTOSImg,
-      @NonNull LinearLayout registerAgreeTOSLl, @NonNull Button registerBtn,
+      @NonNull Button btnRegisterEmailCheck, @NonNull LinearLayout llRegisterEmail,
+      @NonNull LinearLayout llRegisterPwd, @NonNull Button registerBtn,
       @NonNull EditText registerEmailEdittext, @NonNull ImageView registerLogoImage,
-      @NonNull Button registerLookTOSBtn, @NonNull EditText registerPwd2Edittext,
-      @NonNull EditText registerPwdEdittext) {
+      @NonNull EditText registerPwd2Edittext, @NonNull EditText registerPwdEdittext,
+      @NonNull TextView textRegisterEmail, @NonNull TextView textRegisterEmailWrong,
+      @NonNull TextView textRegisterPwd) {
     this.rootView = rootView;
-    this.registerAgreeTOSBtn = registerAgreeTOSBtn;
-    this.registerAgreeTOSImg = registerAgreeTOSImg;
-    this.registerAgreeTOSLl = registerAgreeTOSLl;
+    this.btnRegisterEmailCheck = btnRegisterEmailCheck;
+    this.llRegisterEmail = llRegisterEmail;
+    this.llRegisterPwd = llRegisterPwd;
     this.registerBtn = registerBtn;
     this.registerEmailEdittext = registerEmailEdittext;
     this.registerLogoImage = registerLogoImage;
-    this.registerLookTOSBtn = registerLookTOSBtn;
     this.registerPwd2Edittext = registerPwd2Edittext;
     this.registerPwdEdittext = registerPwdEdittext;
+    this.textRegisterEmail = textRegisterEmail;
+    this.textRegisterEmailWrong = textRegisterEmailWrong;
+    this.textRegisterPwd = textRegisterPwd;
   }
 
   @Override
@@ -93,21 +103,21 @@ public final class ActivityRegisterBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.register_agree_TOS_btn;
-      Button registerAgreeTOSBtn = rootView.findViewById(id);
-      if (registerAgreeTOSBtn == null) {
+      id = R.id.btn_register_email_check;
+      Button btnRegisterEmailCheck = rootView.findViewById(id);
+      if (btnRegisterEmailCheck == null) {
         break missingId;
       }
 
-      id = R.id.register_agree_TOS_img;
-      ImageView registerAgreeTOSImg = rootView.findViewById(id);
-      if (registerAgreeTOSImg == null) {
+      id = R.id.ll_register_email;
+      LinearLayout llRegisterEmail = rootView.findViewById(id);
+      if (llRegisterEmail == null) {
         break missingId;
       }
 
-      id = R.id.register_agree_TOS_ll;
-      LinearLayout registerAgreeTOSLl = rootView.findViewById(id);
-      if (registerAgreeTOSLl == null) {
+      id = R.id.ll_register_pwd;
+      LinearLayout llRegisterPwd = rootView.findViewById(id);
+      if (llRegisterPwd == null) {
         break missingId;
       }
 
@@ -129,12 +139,6 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.register_look_TOS_btn;
-      Button registerLookTOSBtn = rootView.findViewById(id);
-      if (registerLookTOSBtn == null) {
-        break missingId;
-      }
-
       id = R.id.register_pwd2_edittext;
       EditText registerPwd2Edittext = rootView.findViewById(id);
       if (registerPwd2Edittext == null) {
@@ -147,9 +151,28 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRegisterBinding((ConstraintLayout) rootView, registerAgreeTOSBtn,
-          registerAgreeTOSImg, registerAgreeTOSLl, registerBtn, registerEmailEdittext,
-          registerLogoImage, registerLookTOSBtn, registerPwd2Edittext, registerPwdEdittext);
+      id = R.id.text_register_email;
+      TextView textRegisterEmail = rootView.findViewById(id);
+      if (textRegisterEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.text_register_email_wrong;
+      TextView textRegisterEmailWrong = rootView.findViewById(id);
+      if (textRegisterEmailWrong == null) {
+        break missingId;
+      }
+
+      id = R.id.text_register_pwd;
+      TextView textRegisterPwd = rootView.findViewById(id);
+      if (textRegisterPwd == null) {
+        break missingId;
+      }
+
+      return new ActivityRegisterBinding((ConstraintLayout) rootView, btnRegisterEmailCheck,
+          llRegisterEmail, llRegisterPwd, registerBtn, registerEmailEdittext, registerLogoImage,
+          registerPwd2Edittext, registerPwdEdittext, textRegisterEmail, textRegisterEmailWrong,
+          textRegisterPwd);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
