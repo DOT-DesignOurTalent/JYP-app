@@ -10,9 +10,10 @@
     tools:context=".register.RegisterActivity">
 
     <ImageView
-        android:id="@+id/register_logo_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:id="@+id/image_register_logo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorMainBlue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/register_logo_image"
+        app:layout_constraintTop_toBottomOf="@id/image_register_logo"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ll_register_pwd">
@@ -33,12 +34,14 @@
             android:id="@+id/text_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             style="@style/TEXT_LOGIN_REGISTER"
             android:text="이메일"/>
         <EditText
-            android:id="@+id/register_email_edittext"
+            android:id="@+id/edittext_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             style="@style/EDITTEXT_MAIN"
             android:hint="이메일"/>
         <Button
@@ -51,6 +54,8 @@
             android:id="@+id/text_register_email_wrong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             style="@style/TEXT_LOGIN_REGISTER_WRONG"/>
     </LinearLayout>
 
@@ -62,29 +67,38 @@
         app:layout_constraintTop_toBottomOf="@id/ll_register_email"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/register_btn">
+        app:layout_constraintBottom_toTopOf="@id/btn_register">
         <TextView
             android:id="@+id/text_register_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             style="@style/TEXT_LOGIN_REGISTER"
             android:text="비밀번호"/>
         <EditText
-            android:id="@+id/register_pwd_edittext"
+            android:id="@+id/edittext_register_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             style="@style/EDITTEXT_MAIN"
             android:hint="패스워드"/>
         <EditText
-            android:id="@+id/register_pwd2_edittext"
+            android:id="@+id/edittext_register_pwd2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/EDITTEXT_MAIN"
             android:hint="패스워드 확인"/>
+        <TextView
+            android:id="@+id/text_register_pwd_wrong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            style="@style/TEXT_LOGIN_REGISTER_WRONG"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/register_btn"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입"

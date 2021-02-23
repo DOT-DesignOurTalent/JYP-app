@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // 임시 로그인 : login -> lobby
-        binding.loginBtn.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             val lobbyIntent = Intent(this, LobbyActivity::class.java)
             startActivity(lobbyIntent)
         }
@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
 //        }
 
         // login -> register
-        binding.loginRegisterBtn.setOnClickListener {
+        binding.btnLoginRegister.setOnClickListener {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)
         }

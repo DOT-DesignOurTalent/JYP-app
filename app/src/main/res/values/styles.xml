@@ -41,6 +41,7 @@
     <style name="TEXT_LOGIN_REGISTER_WRONG" parent="TEXT_LOGIN_REGISTER">
         <item name="android:textColor">@color/colorWrongOrange</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dp</item>
     </style>
 
 </resources>

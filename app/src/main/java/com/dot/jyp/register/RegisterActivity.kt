@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // 임시 회원가입 : register -> login
-        binding.registerBtn.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)
         }
