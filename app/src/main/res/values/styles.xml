@@ -9,8 +9,12 @@
 
     <!--BUTTON-->
     <style name="BUTTON_MAIN">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:layout_marginRight">50dp</item>
         <item name="android:textSize">24dp</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorWhite</item>
     </style>
     <style name="BUTTON_MAIN_ACTIVE" parent="BUTTON_MAIN">
@@ -20,28 +24,51 @@
         <item name="android:background">@drawable/btn_black_200</item>
     </style>
 
+    <style name="BUTTON_SUB">
+        <item name="android:layout_height">16dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorMainBlue</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
     <!-- EDITTEXT -->
     <style name="EDITTEXT_MAIN">
+        <item name="android:layout_height">36dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:layout_marginRight">50dp</item>
         <item name="android:textSize">16dp</item>
-        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textColor">@color/colorGrey3</item>
         <item name="android:background">@drawable/edit_activate</item>
-    </style>
-    <style name="EDITTEXT_AVAILABLE" parent="EDITTEXT_MAIN">
-        <item name="android:background">@drawable/edit_available</item>
-    </style>
-    <style name="EDITTEXT_WRONG" parent="EDITTEXT_MAIN">
-        <item name="android:background">@drawable/edit_wrong</item>
     </style>
 
     <!-- TEXTVIEW -->
     <style name="TEXT_LOGIN_REGISTER">
+        <item name="android:layout_marginLeft">50dp</item>
+        <item name="android:layout_marginRight">50dp</item>
         <item name="android:textColor">@color/colorMainBlue</item>
         <item name="android:textSize">15dp</item>
     </style>
     <style name="TEXT_LOGIN_REGISTER_WRONG" parent="TEXT_LOGIN_REGISTER">
-        <item name="android:textColor">@color/colorWrongOrange</item>
+        <item name="android:textColor">@color/colorError</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">12dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="TEXT_LOGIN_REGISTER_ALERT" parent="TEXT_LOGIN_REGISTER">
+        <item name="android:textColor">@color/colorAlert</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="TEXT_LOGIN_REGISTER_CHECK" parent="TEXT_LOGIN_REGISTER">
+        <item name="android:textColor">@color/colorCheck</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
 </resources>

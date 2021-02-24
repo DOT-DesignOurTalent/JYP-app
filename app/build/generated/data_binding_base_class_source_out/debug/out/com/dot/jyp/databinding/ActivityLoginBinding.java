@@ -23,6 +23,27 @@ public final class ActivityLoginBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final Button btnLogin;
+
+  @NonNull
+  public final Button btnLoginFindPwd;
+
+  @NonNull
+  public final Button btnLoginRegister;
+
+  @NonNull
+  public final EditText edittextLoginEmail;
+
+  @NonNull
+  public final EditText edittextLoginPwd;
+
+  @NonNull
+  public final ImageView imgLoginLogo;
+
+  @NonNull
+  public final LinearLayout llLoginBtnSet;
+
+  @NonNull
   public final Button loginAutoBtn;
 
   @NonNull
@@ -32,28 +53,10 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final LinearLayout loginAutoLl;
 
   @NonNull
-  public final Button loginBtn;
-
-  @NonNull
-  public final EditText loginEmailEdittext;
-
-  @NonNull
-  public final Button loginFindPwdBtn;
-
-  @NonNull
-  public final ImageView loginLogoImg;
-
-  @NonNull
-  public final TextView loginNoAccountText;
-
-  @NonNull
-  public final EditText loginPwdEdittext;
-
-  @NonNull
-  public final Button loginRegisterBtn;
-
-  @NonNull
   public final TextView textLoginEmail;
+
+  @NonNull
+  public final TextView textLoginNoAccount;
 
   @NonNull
   public final TextView textLoginPwd;
@@ -61,25 +64,27 @@ public final class ActivityLoginBinding implements ViewBinding {
   @NonNull
   public final TextView textLoginWrong;
 
-  private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull Button loginAutoBtn,
-      @NonNull ImageView loginAutoImg, @NonNull LinearLayout loginAutoLl, @NonNull Button loginBtn,
-      @NonNull EditText loginEmailEdittext, @NonNull Button loginFindPwdBtn,
-      @NonNull ImageView loginLogoImg, @NonNull TextView loginNoAccountText,
-      @NonNull EditText loginPwdEdittext, @NonNull Button loginRegisterBtn,
-      @NonNull TextView textLoginEmail, @NonNull TextView textLoginPwd,
+  private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnLogin,
+      @NonNull Button btnLoginFindPwd, @NonNull Button btnLoginRegister,
+      @NonNull EditText edittextLoginEmail, @NonNull EditText edittextLoginPwd,
+      @NonNull ImageView imgLoginLogo, @NonNull LinearLayout llLoginBtnSet,
+      @NonNull Button loginAutoBtn, @NonNull ImageView loginAutoImg,
+      @NonNull LinearLayout loginAutoLl, @NonNull TextView textLoginEmail,
+      @NonNull TextView textLoginNoAccount, @NonNull TextView textLoginPwd,
       @NonNull TextView textLoginWrong) {
     this.rootView = rootView;
+    this.btnLogin = btnLogin;
+    this.btnLoginFindPwd = btnLoginFindPwd;
+    this.btnLoginRegister = btnLoginRegister;
+    this.edittextLoginEmail = edittextLoginEmail;
+    this.edittextLoginPwd = edittextLoginPwd;
+    this.imgLoginLogo = imgLoginLogo;
+    this.llLoginBtnSet = llLoginBtnSet;
     this.loginAutoBtn = loginAutoBtn;
     this.loginAutoImg = loginAutoImg;
     this.loginAutoLl = loginAutoLl;
-    this.loginBtn = loginBtn;
-    this.loginEmailEdittext = loginEmailEdittext;
-    this.loginFindPwdBtn = loginFindPwdBtn;
-    this.loginLogoImg = loginLogoImg;
-    this.loginNoAccountText = loginNoAccountText;
-    this.loginPwdEdittext = loginPwdEdittext;
-    this.loginRegisterBtn = loginRegisterBtn;
     this.textLoginEmail = textLoginEmail;
+    this.textLoginNoAccount = textLoginNoAccount;
     this.textLoginPwd = textLoginPwd;
     this.textLoginWrong = textLoginWrong;
   }
@@ -111,6 +116,48 @@ public final class ActivityLoginBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_login;
+      Button btnLogin = rootView.findViewById(id);
+      if (btnLogin == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_login_find_pwd;
+      Button btnLoginFindPwd = rootView.findViewById(id);
+      if (btnLoginFindPwd == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_login_register;
+      Button btnLoginRegister = rootView.findViewById(id);
+      if (btnLoginRegister == null) {
+        break missingId;
+      }
+
+      id = R.id.edittext_login_email;
+      EditText edittextLoginEmail = rootView.findViewById(id);
+      if (edittextLoginEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.edittext_login_pwd;
+      EditText edittextLoginPwd = rootView.findViewById(id);
+      if (edittextLoginPwd == null) {
+        break missingId;
+      }
+
+      id = R.id.img_login_logo;
+      ImageView imgLoginLogo = rootView.findViewById(id);
+      if (imgLoginLogo == null) {
+        break missingId;
+      }
+
+      id = R.id.ll_login_btn_set;
+      LinearLayout llLoginBtnSet = rootView.findViewById(id);
+      if (llLoginBtnSet == null) {
+        break missingId;
+      }
+
       id = R.id.login_auto_btn;
       Button loginAutoBtn = rootView.findViewById(id);
       if (loginAutoBtn == null) {
@@ -129,51 +176,15 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.login_btn;
-      Button loginBtn = rootView.findViewById(id);
-      if (loginBtn == null) {
-        break missingId;
-      }
-
-      id = R.id.login_email_edittext;
-      EditText loginEmailEdittext = rootView.findViewById(id);
-      if (loginEmailEdittext == null) {
-        break missingId;
-      }
-
-      id = R.id.login_find_pwd_btn;
-      Button loginFindPwdBtn = rootView.findViewById(id);
-      if (loginFindPwdBtn == null) {
-        break missingId;
-      }
-
-      id = R.id.login_logo_img;
-      ImageView loginLogoImg = rootView.findViewById(id);
-      if (loginLogoImg == null) {
-        break missingId;
-      }
-
-      id = R.id.login_no_account_text;
-      TextView loginNoAccountText = rootView.findViewById(id);
-      if (loginNoAccountText == null) {
-        break missingId;
-      }
-
-      id = R.id.login_pwd_edittext;
-      EditText loginPwdEdittext = rootView.findViewById(id);
-      if (loginPwdEdittext == null) {
-        break missingId;
-      }
-
-      id = R.id.login_register_btn;
-      Button loginRegisterBtn = rootView.findViewById(id);
-      if (loginRegisterBtn == null) {
-        break missingId;
-      }
-
       id = R.id.text_login_email;
       TextView textLoginEmail = rootView.findViewById(id);
       if (textLoginEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.text_login_no_account;
+      TextView textLoginNoAccount = rootView.findViewById(id);
+      if (textLoginNoAccount == null) {
         break missingId;
       }
 
@@ -189,9 +200,9 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoginBinding((ConstraintLayout) rootView, loginAutoBtn, loginAutoImg,
-          loginAutoLl, loginBtn, loginEmailEdittext, loginFindPwdBtn, loginLogoImg,
-          loginNoAccountText, loginPwdEdittext, loginRegisterBtn, textLoginEmail, textLoginPwd,
+      return new ActivityLoginBinding((ConstraintLayout) rootView, btnLogin, btnLoginFindPwd,
+          btnLoginRegister, edittextLoginEmail, edittextLoginPwd, imgLoginLogo, llLoginBtnSet,
+          loginAutoBtn, loginAutoImg, loginAutoLl, textLoginEmail, textLoginNoAccount, textLoginPwd,
           textLoginWrong);
     }
     String missingId = rootView.getResources().getResourceName(id);

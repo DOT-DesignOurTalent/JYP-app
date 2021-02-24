@@ -4,11 +4,20 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorMainBlue">#15366D</color>
+
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#333333</color>
-    <color name="colorGray">#999999</color>
-    <color name="colorActiveBlue">#15366D</color>
-    <color name="colorCorrectBlue">#619CFF</color>
-    <color name="colorWrongOrange">#FF3D00</color>
+    <color name="colorGrey1">#E5E5E5</color>
+    <color name="colorGrey2">#CCCCCC</color>
+    <color name="colorGrey3">#999999</color>
+
+    <color name="colorCourtNavy">#15366D</color>
+    <color name="colorCourtNight">#2156AD</color>
+    <color name="colroCourtBlue">#2B6BD6</color>
+    <color name="colorCourtSky">#6B98E3</color>
+
+    <color name="colorError">#FF3D00</color>
+    <color name="colorAlert">#FF7F00</color>
+    <color name="colorCheck">#00DD00</color>
 
 </resources>
