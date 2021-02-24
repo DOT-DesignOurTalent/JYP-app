@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -36,7 +37,7 @@ class SelectMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_menu)
-        findViewById<LinearLayout>(R.id.linear_select_menu_layout).setOnClickListener {
+        findViewById<Button>(R.id.btn_select_menu_choice).setOnClickListener {
             getRestaurants()
         }
     }
@@ -68,7 +69,6 @@ class SelectMenuActivity : AppCompatActivity() {
                 val y = location.latitude
                 val x = location.longitude
                 //위도, 경도값 출력
-
                 val call = kakaoService.getRestaurants("FD6",x.toString(),y.toString(),500)
                 //val call = kakaoService.getRestaurants("FD6","126.886361","37.652672",1000)
                 call.enqueue(object : Callback<KakaoSearchResult> {
@@ -84,7 +84,6 @@ class SelectMenuActivity : AppCompatActivity() {
                         }
                         showDialog()
                     }
-
                     override fun onFailure(call: Call<KakaoSearchResult>, t: Throwable) {
                         Log.e(TAG,t.message.toString())
                     }

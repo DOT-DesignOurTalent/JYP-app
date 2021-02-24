@@ -35,10 +35,6 @@
         <activity android:name="com.dot.jyp.lobby.LobbyActivity" />
         <activity android:name="com.dot.jyp.game.SelectMenuActivity" />
         <activity android:name="com.dot.jyp.register.RegisterActivity" />
-        <activity android:name="com.dot.jyp.IntroActivity" />
-        <activity android:name="com.dot.jyp.lobby.LinkActivity" />
-        <activity android:name="com.dot.jyp.lobby.LobbyActivity" >
-        </activity>
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
