@@ -69,19 +69,19 @@ class SelectMenuActivity : AppCompatActivity() {
         }
 
         //권한이 있는 경우
-        val layoutManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val isGpsEnabled = layoutManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-        val isNetworkEnabled = layoutManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val isGpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        val isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
         when{
             isNetworkEnabled -> {
-                val location = layoutManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+                val location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
                 if(location != null){
                     x = location.longitude
                     y = location.latitude
                 }
             }
             isGpsEnabled -> {
-                val location = layoutManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
                 if(location != null){
                     x = location.longitude
                     y = location.latitude
