@@ -38,19 +38,19 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final EditText edittextLoginPwd;
 
   @NonNull
+  public final ImageView imageLoginAuto;
+
+  @NonNull
   public final ImageView imgLoginLogo;
+
+  @NonNull
+  public final LinearLayout llLoginAuto;
 
   @NonNull
   public final LinearLayout llLoginBtnSet;
 
   @NonNull
-  public final Button loginAutoBtn;
-
-  @NonNull
-  public final ImageView loginAutoImg;
-
-  @NonNull
-  public final LinearLayout loginAutoLl;
+  public final TextView textLoginAuto;
 
   @NonNull
   public final TextView textLoginEmail;
@@ -67,9 +67,9 @@ public final class ActivityLoginBinding implements ViewBinding {
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnLogin,
       @NonNull Button btnLoginFindPwd, @NonNull Button btnLoginRegister,
       @NonNull EditText edittextLoginEmail, @NonNull EditText edittextLoginPwd,
-      @NonNull ImageView imgLoginLogo, @NonNull LinearLayout llLoginBtnSet,
-      @NonNull Button loginAutoBtn, @NonNull ImageView loginAutoImg,
-      @NonNull LinearLayout loginAutoLl, @NonNull TextView textLoginEmail,
+      @NonNull ImageView imageLoginAuto, @NonNull ImageView imgLoginLogo,
+      @NonNull LinearLayout llLoginAuto, @NonNull LinearLayout llLoginBtnSet,
+      @NonNull TextView textLoginAuto, @NonNull TextView textLoginEmail,
       @NonNull TextView textLoginNoAccount, @NonNull TextView textLoginPwd,
       @NonNull TextView textLoginWrong) {
     this.rootView = rootView;
@@ -78,11 +78,11 @@ public final class ActivityLoginBinding implements ViewBinding {
     this.btnLoginRegister = btnLoginRegister;
     this.edittextLoginEmail = edittextLoginEmail;
     this.edittextLoginPwd = edittextLoginPwd;
+    this.imageLoginAuto = imageLoginAuto;
     this.imgLoginLogo = imgLoginLogo;
+    this.llLoginAuto = llLoginAuto;
     this.llLoginBtnSet = llLoginBtnSet;
-    this.loginAutoBtn = loginAutoBtn;
-    this.loginAutoImg = loginAutoImg;
-    this.loginAutoLl = loginAutoLl;
+    this.textLoginAuto = textLoginAuto;
     this.textLoginEmail = textLoginEmail;
     this.textLoginNoAccount = textLoginNoAccount;
     this.textLoginPwd = textLoginPwd;
@@ -146,9 +146,21 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.image_login_auto;
+      ImageView imageLoginAuto = rootView.findViewById(id);
+      if (imageLoginAuto == null) {
+        break missingId;
+      }
+
       id = R.id.img_login_logo;
       ImageView imgLoginLogo = rootView.findViewById(id);
       if (imgLoginLogo == null) {
+        break missingId;
+      }
+
+      id = R.id.ll_login_auto;
+      LinearLayout llLoginAuto = rootView.findViewById(id);
+      if (llLoginAuto == null) {
         break missingId;
       }
 
@@ -158,21 +170,9 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.login_auto_btn;
-      Button loginAutoBtn = rootView.findViewById(id);
-      if (loginAutoBtn == null) {
-        break missingId;
-      }
-
-      id = R.id.login_auto_img;
-      ImageView loginAutoImg = rootView.findViewById(id);
-      if (loginAutoImg == null) {
-        break missingId;
-      }
-
-      id = R.id.login_auto_ll;
-      LinearLayout loginAutoLl = rootView.findViewById(id);
-      if (loginAutoLl == null) {
+      id = R.id.text_login_auto;
+      TextView textLoginAuto = rootView.findViewById(id);
+      if (textLoginAuto == null) {
         break missingId;
       }
 
@@ -201,9 +201,9 @@ public final class ActivityLoginBinding implements ViewBinding {
       }
 
       return new ActivityLoginBinding((ConstraintLayout) rootView, btnLogin, btnLoginFindPwd,
-          btnLoginRegister, edittextLoginEmail, edittextLoginPwd, imgLoginLogo, llLoginBtnSet,
-          loginAutoBtn, loginAutoImg, loginAutoLl, textLoginEmail, textLoginNoAccount, textLoginPwd,
-          textLoginWrong);
+          btnLoginRegister, edittextLoginEmail, edittextLoginPwd, imageLoginAuto, imgLoginLogo,
+          llLoginAuto, llLoginBtnSet, textLoginAuto, textLoginEmail, textLoginNoAccount,
+          textLoginPwd, textLoginWrong);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

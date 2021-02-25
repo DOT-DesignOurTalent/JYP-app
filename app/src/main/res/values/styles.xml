@@ -41,7 +41,7 @@
         <item name="android:layout_marginLeft">50dp</item>
         <item name="android:layout_marginRight">50dp</item>
         <item name="android:textSize">16dp</item>
-        <item name="android:textColor">@color/colorGrey3</item>
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="android:background">@drawable/edit_activate</item>
     </style>
 
@@ -51,6 +51,10 @@
         <item name="android:layout_marginRight">50dp</item>
         <item name="android:textColor">@color/colorMainBlue</item>
         <item name="android:textSize">15dp</item>
+    </style>
+    <style name="TEXT_LOGIN_REGISTER_TITLE" parent="TEXT_LOGIN_REGISTER">
+        <item name="android:layout_marginLeft">66dp</item>
+        <item name="android:layout_marginRight">66dp</item>
     </style>
     <style name="TEXT_LOGIN_REGISTER_WRONG" parent="TEXT_LOGIN_REGISTER">
         <item name="android:textColor">@color/colorError</item>

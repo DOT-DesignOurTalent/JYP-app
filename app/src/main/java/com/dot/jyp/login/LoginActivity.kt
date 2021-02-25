@@ -21,13 +21,16 @@ class LoginActivity : AppCompatActivity() {
             val lobbyIntent = Intent(this, LobbyActivity::class.java)
             startActivity(lobbyIntent)
         }
-        // 임시 비회원 로그인 : login -> lobby
-//        binding.loginNonMemberBtn.setOnClickListener {
-//            val lobbyIntent = Intent(this, LobbyActivity::class.java)
-//            startActivity(lobbyIntent)
-//        }
 
-        // login -> register
+        //--옵션 기능--------------------------------------------------------------------------------
+        // 자동 로그인
+        binding.llLoginAuto.setOnClickListener {
+
+        }
+
+
+
+        // 회원가입 : login -> register
         binding.btnLoginRegister.setOnClickListener {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)

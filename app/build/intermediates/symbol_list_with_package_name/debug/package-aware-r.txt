@@ -1963,6 +1963,7 @@ id ignoreRequest
 id image
 id image_link_close
 id image_lobby_icon
+id image_login_auto
 id image_register_logo
 id image_start_logo
 id img_login_logo
@@ -1987,12 +1988,10 @@ id line3
 id linear
 id listMode
 id list_item
+id ll_login_auto
 id ll_login_btn_set
 id ll_register_email
 id ll_register_pwd
-id login_auto_btn
-id login_auto_img
-id login_auto_ll
 id masked
 id material_clock_display
 id material_clock_face
@@ -2169,6 +2168,7 @@ id text_item_select_menu_restaurants
 id text_lobby_comment
 id text_lobby_comment2
 id text_lobby_tip
+id text_login_auto
 id text_login_email
 id text_login_no_account
 id text_login_pwd
@@ -2431,6 +2431,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string email_hint
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -2493,11 +2494,11 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pwd2_hint
+string pwd_hint
 string search_menu_title
 string select_menu_state
 string status_bar_notification_info_overflow
-string tos1
-string tos2
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
@@ -2799,6 +2800,7 @@ style ShapeAppearanceOverlay_TopRightDifferentCornerSize
 style TEXT_LOGIN_REGISTER
 style TEXT_LOGIN_REGISTER_ALERT
 style TEXT_LOGIN_REGISTER_CHECK
+style TEXT_LOGIN_REGISTER_TITLE
 style TEXT_LOGIN_REGISTER_WRONG
 style Test_ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style Test_Theme_MaterialComponents_MaterialCalendar
