@@ -1,7 +1,7 @@
-#Thu Feb 25 17:48:51 KST 2021
-base.0=C\:\\Users\\lg\\AndroidStudioProjects\\JYPAPP\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+#Thu Feb 25 22:52:51 KST 2021
+base.0=C\:\\Project\\JYP-app\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\lg\\AndroidStudioProjects\\JYPAPP\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+base.1=C\:\\Project\\JYP-app\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
