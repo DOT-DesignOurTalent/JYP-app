@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,29 +21,33 @@ public final class ActivitySelectMenuBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnSelectMenuCreate;
+  public final Button btnSelectMenuChoice;
+
+  @NonNull
+  public final Button btnSelectMenuNext;
 
   @NonNull
   public final ConstraintLayout constraintSelectMenuLayout;
 
   @NonNull
-  public final LinearLayout linearSelectMenuLayout;
+  public final TextView textSelectMenuComment;
 
   @NonNull
-  public final TextView textSelectMenuComment;
+  public final TextView textSelectMenuTitle;
 
   @NonNull
   public final Toolbar toolbarSelectMenuActionbar;
 
   private ActivitySelectMenuBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button btnSelectMenuCreate, @NonNull ConstraintLayout constraintSelectMenuLayout,
-      @NonNull LinearLayout linearSelectMenuLayout, @NonNull TextView textSelectMenuComment,
-      @NonNull Toolbar toolbarSelectMenuActionbar) {
+      @NonNull Button btnSelectMenuChoice, @NonNull Button btnSelectMenuNext,
+      @NonNull ConstraintLayout constraintSelectMenuLayout, @NonNull TextView textSelectMenuComment,
+      @NonNull TextView textSelectMenuTitle, @NonNull Toolbar toolbarSelectMenuActionbar) {
     this.rootView = rootView;
-    this.btnSelectMenuCreate = btnSelectMenuCreate;
+    this.btnSelectMenuChoice = btnSelectMenuChoice;
+    this.btnSelectMenuNext = btnSelectMenuNext;
     this.constraintSelectMenuLayout = constraintSelectMenuLayout;
-    this.linearSelectMenuLayout = linearSelectMenuLayout;
     this.textSelectMenuComment = textSelectMenuComment;
+    this.textSelectMenuTitle = textSelectMenuTitle;
     this.toolbarSelectMenuActionbar = toolbarSelectMenuActionbar;
   }
 
@@ -75,23 +78,29 @@ public final class ActivitySelectMenuBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_select_menu_create;
-      Button btnSelectMenuCreate = rootView.findViewById(id);
-      if (btnSelectMenuCreate == null) {
+      id = R.id.btn_select_menu_choice;
+      Button btnSelectMenuChoice = rootView.findViewById(id);
+      if (btnSelectMenuChoice == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_select_menu_next;
+      Button btnSelectMenuNext = rootView.findViewById(id);
+      if (btnSelectMenuNext == null) {
         break missingId;
       }
 
       ConstraintLayout constraintSelectMenuLayout = (ConstraintLayout) rootView;
 
-      id = R.id.linear_select_menu_layout;
-      LinearLayout linearSelectMenuLayout = rootView.findViewById(id);
-      if (linearSelectMenuLayout == null) {
-        break missingId;
-      }
-
       id = R.id.text_select_menu_comment;
       TextView textSelectMenuComment = rootView.findViewById(id);
       if (textSelectMenuComment == null) {
+        break missingId;
+      }
+
+      id = R.id.text_select_menu_title;
+      TextView textSelectMenuTitle = rootView.findViewById(id);
+      if (textSelectMenuTitle == null) {
         break missingId;
       }
 
@@ -101,8 +110,8 @@ public final class ActivitySelectMenuBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySelectMenuBinding((ConstraintLayout) rootView, btnSelectMenuCreate,
-          constraintSelectMenuLayout, linearSelectMenuLayout, textSelectMenuComment,
+      return new ActivitySelectMenuBinding((ConstraintLayout) rootView, btnSelectMenuChoice,
+          btnSelectMenuNext, constraintSelectMenuLayout, textSelectMenuComment, textSelectMenuTitle,
           toolbarSelectMenuActionbar);
     }
     String missingId = rootView.getResources().getResourceName(id);

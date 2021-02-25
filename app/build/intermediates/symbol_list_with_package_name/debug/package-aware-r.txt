@@ -1697,15 +1697,16 @@ drawable edit_error
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_actionbar
+drawable ic_character_1
 drawable ic_clock_black_24dp
 drawable ic_close_button
 drawable ic_copy_icon
+drawable ic_icon
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_link_background
 drawable ic_link_letter
-drawable ic_lobby_icon
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1845,7 +1846,8 @@ id btn_login_find_pwd
 id btn_login_register
 id btn_register
 id btn_register_email_check
-id btn_select_menu_create
+id btn_select_menu_choice
+id btn_select_menu_next
 id btn_start_member_login
 id btn_start_nonmem_login
 id buttonPanel
@@ -1983,7 +1985,6 @@ id light
 id line1
 id line3
 id linear
-id linear_select_menu_layout
 id listMode
 id list_item
 id ll_login_btn_set
@@ -2177,6 +2178,7 @@ id text_register_email_wrong
 id text_register_pwd
 id text_register_pwd_wrong
 id text_select_menu_comment
+id text_select_menu_title
 id text_start_sub_title
 id text_start_title
 id text_start_warn_nonmem
@@ -2492,6 +2494,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
+string select_menu_state
 string status_bar_notification_info_overflow
 string tos1
 string tos2

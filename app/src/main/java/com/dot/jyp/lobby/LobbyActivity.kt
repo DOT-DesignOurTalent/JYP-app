@@ -3,22 +3,21 @@ package com.dot.jyp.lobby
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
-import android.view.View
-import android.view.WindowManager
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dot.jyp.R
-import com.google.android.material.snackbar.Snackbar
+
 
 class LobbyActivity : AppCompatActivity() {
     private val requiredPermissions = arrayOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_COARSE_LOCATION)
+        Manifest.permission.ACCESS_COARSE_LOCATION
+    )
     private val multiplePermissionsCode = 100
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +29,8 @@ class LobbyActivity : AppCompatActivity() {
             val intent = Intent(this, LinkActivity::class.java)
             startActivity(intent)
         }
+
+
     }
 
     //퍼미션 체크 및 권한 요청 함수
@@ -49,7 +50,11 @@ class LobbyActivity : AppCompatActivity() {
         if(requestPermissionList.isNotEmpty()){
             //권한 요청!
             val array = arrayOfNulls<String>(requestPermissionList.size)
-            ActivityCompat.requestPermissions(this, requestPermissionList.toArray(array), multiplePermissionsCode)
+            ActivityCompat.requestPermissions(
+                this,
+                requestPermissionList.toArray(array),
+                multiplePermissionsCode
+            )
         }
     }
 }
