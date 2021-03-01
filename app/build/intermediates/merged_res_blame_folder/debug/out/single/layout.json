@@ -1,38 +1,38 @@
 [
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_select_menu.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_select_menu.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_select_menu.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\item_select_menu.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_register.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_register.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_select_menu.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\activity_select_menu.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_start.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_start.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_link.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\activity_link.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_link.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_link.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_lobby.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_lobby.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_register.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\activity_register.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_intro.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_intro.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_lobby.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\activity_lobby.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_select_menu.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\item_select_menu.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_start.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\activity_start.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_select_menu.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\dialog_select_menu.xml"
     },
     {
-        "merged": "C:\\Project\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\dialog_select_menu.xml",
-        "source": "C:\\Project\\JYP-app\\app\\src\\main\\res\\layout\\dialog_select_menu.xml"
+        "merged": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_intro.xml",
+        "source": "C:\\Users\\lg\\AndroidStudioProjects\\JYP-app\\app\\src\\main\\res\\layout\\activity_intro.xml"
     }
 ]
