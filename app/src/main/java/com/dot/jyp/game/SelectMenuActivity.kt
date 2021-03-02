@@ -4,29 +4,25 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.location.LocationManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dot.jyp.R
 import com.dot.jyp.model.KakaoSearchResult
 import com.dot.jyp.server.RetrofitSingleTon.kakaoService
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationListener
-import com.google.android.gms.location.LocationServices
 import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
@@ -58,7 +54,11 @@ class SelectMenuActivity : AppCompatActivity() {
         ){
             //권한없으면 스낵바 호출 후 함수 종료
             val view = findViewById<View>(R.id.constraint_select_menu_layout)
-            val snackBar = Snackbar.make(view, "위치 권한이 필요합니다. 확인을 누르시면 설정화면으로 이동합니다.", Snackbar.LENGTH_LONG)
+            val snackBar = Snackbar.make(
+                view,
+                "위치 권한이 필요합니다. 확인을 누르시면 설정화면으로 이동합니다.",
+                Snackbar.LENGTH_LONG
+            )
             snackBar.setAction("확인") {
                 val intent = Intent()
                 intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
@@ -96,7 +96,7 @@ class SelectMenuActivity : AppCompatActivity() {
             return
         }
         //val call = kakaoService.getRestaurants("FD6",x.toString(),y.toString(),500)
-        val call = kakaoService.getRestaurants("FD6","126.886361","37.652672",1000)
+        val call = kakaoService.getRestaurants("FD6", "126.926843", "37.562707", 500)
         call.enqueue(object : Callback<KakaoSearchResult> {
             override fun onResponse(
                 call: Call<KakaoSearchResult>,
@@ -104,14 +104,15 @@ class SelectMenuActivity : AppCompatActivity() {
             ) {
                 val list = response.body()!!.documents
                 items = ArrayList<RestaurantInformation>()
-                for(document in list){
-                    items.add(RestaurantInformation(document.category_name, document.place_name))
-                    Log.e(TAG,"[카테고리 : ${document.category_name}] [식당이름 : ${document.place_name}]")
+                for (document in list) {
+                    items.add(RestaurantInformation(document.category_name.split(" > ")[1], document.place_name))
+                    Log.e(TAG, "[카테고리 : ${document.category_name.split(" > ")[1]}] [식당이름 : ${document.place_name}]")
                 }
                 showDialog()
             }
+
             override fun onFailure(call: Call<KakaoSearchResult>, t: Throwable) {
-                Log.e(TAG,t.message.toString())
+                Log.e(TAG, t.message.toString())
             }
         })
     }
@@ -135,6 +136,7 @@ class SelectMenuActivity : AppCompatActivity() {
             }
         })
         dialog.setCanceledOnTouchOutside(true)
+        //dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
     }
 }
