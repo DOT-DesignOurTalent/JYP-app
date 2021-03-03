@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.widget.Button
 import androidx.core.content.ContextCompat
 import com.dot.jyp.R
 import com.dot.jyp.lobby.LobbyActivity
@@ -29,17 +31,12 @@ class LoginActivity : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {
                 if(binding.edittextLoginEmail.text.toString() != ""){
                     if(binding.edittextLoginPwd.text.toString() != ""){
-                        binding.btnLogin.setBackgroundResource(R.drawable.btn_blue_200)
-                        binding.btnLogin.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
-                        binding.btnLogin.isEnabled = true
-                        binding.btnLogin.isClickable = true
+                        activateButton(binding.btnLogin)
                     }
                     isEmailChecked = true
                 }else{
-                    binding.btnLogin.setBackgroundResource(R.drawable.btn_black_200)
-                    binding.btnLogin.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorGrey2))
-                    binding.btnLogin.isEnabled = false
-                    binding.btnLogin.isClickable = false
+                    inactivateButton(binding.btnLogin)
+                    Log.d("버튼", "확인")
                     isEmailChecked = false
                 }
             }
@@ -49,15 +46,9 @@ class LoginActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if(isEmailChecked && binding.edittextLoginPwd.text.toString() != ""){
-                    binding.btnLogin.setBackgroundResource(R.drawable.btn_blue_200)
-                    binding.btnLogin.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
-                    binding.btnLogin.isEnabled = true
-                    binding.btnLogin.isClickable = true
+                    activateButton(binding.btnLogin)
                 }else{
-                    binding.btnLogin.setBackgroundResource(R.drawable.btn_black_200)
-                    binding.btnLogin.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorGrey2))
-                    binding.btnLogin.isEnabled = false
-                    binding.btnLogin.isClickable = false
+                    inactivateButton(binding.btnLogin)
                 }
             }
             override fun afterTextChanged(p0: Editable?) { }
@@ -67,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val lobbyIntent = Intent(this, LobbyActivity::class.java)
             startActivity(lobbyIntent)
+
         }
 
 
@@ -90,5 +82,19 @@ class LoginActivity : AppCompatActivity() {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)
         }
+    }
+
+    fun inactivateButton(btn :Button) {
+        btn.setBackgroundResource(R.drawable.btn_black_200)
+        btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorGrey2))
+        btn.isEnabled = false
+        btn.isClickable = false
+    }
+
+    fun activateButton(btn: Button) {
+        btn.setBackgroundResource(R.drawable.btn_blue_200)
+        btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorWhite))
+        btn.isEnabled = true
+        btn.isClickable = true
     }
 }
