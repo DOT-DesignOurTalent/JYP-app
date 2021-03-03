@@ -2,13 +2,20 @@ package com.dot.jyp.server
 
 import com.dot.jyp.model.SignUpResult
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface BackEndService {
-    @GET("/api/v1/user/sign-up")
+    @FormUrlEncoded
+    @POST("/api/v1/user/signup")
     fun signUp(
-        @Query("email") email : String,
-        @Query("password") password : String
+        @Field("email") email : String,
+        @Field("passphrase") passphrase : String
     ): Call<SignUpResult>
+
+    @POST("/api/v1/user/login")
+    fun logIn(
+        @Field("email") email: String,
+        @Field("passphrase") passphrase: String
+    )
+
 }

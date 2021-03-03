@@ -4,14 +4,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitSingleTon {
-    private const val BackEnd_URL = "https://tempkirrit.com"
+    private const val BackEnd_URL = "https://project-jyp.herokuapp.com"
     private const val Kakao_URL = "https://dapi.kakao.com"
 
     private val backEndRetrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BackEnd_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-
 
     private val kakaoRetrofit : Retrofit = Retrofit.Builder()
             .baseUrl(Kakao_URL)
