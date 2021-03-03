@@ -17,6 +17,7 @@ import com.dot.jyp.R
 import com.dot.jyp.databinding.ActivityLoginBinding
 import com.dot.jyp.databinding.ActivityRegisterBinding
 import com.dot.jyp.login.LoginActivity
+import com.dot.jyp.model.Account
 import com.dot.jyp.model.SignUpResult
 import com.dot.jyp.server.RetrofitSingleTon
 import com.dot.jyp.server.RetrofitSingleTon.backEndService
@@ -109,19 +110,20 @@ class RegisterActivity : AppCompatActivity() {
         // 임시 회원가입 : register -> login
         binding.btnRegister.setOnClickListener {
             val loginIntent = Intent(this, LoginActivity::class.java)
-            var callPostSignUp = backEndService.signUp(binding.edittextRegisterEmail.text.toString(), binding.edittextRegisterPwd.text.toString())
-            callPostSignUp.enqueue(object: retrofit2.Callback<SignUpResult> {
+            val data = Account(binding.edittextRegisterEmail.text.toString(),binding.edittextRegisterPwd.text.toString())
+            var callPostSignUp = backEndService.signUp(data)
+            callPostSignUp.enqueue(object: retrofit2.Callback<Void> {
                 override fun onResponse(
-                    call: retrofit2.Call<SignUpResult>,
-                    response: retrofit2.Response<SignUpResult>
+                    call: retrofit2.Call<Void>,
+                    response: retrofit2.Response<Void>
                 ) {
-                    Log.e("회원가입", "성공")
-                    Toast.makeText(applicationContext, "회원가입을 축하합니다!", Toast.LENGTH_SHORT).show()
-                    // 로그인 페이지로 화면전환
-                    startActivity(loginIntent)
+                    if(response.code() == 201) {
+                        Toast.makeText(applicationContext, "회원가입을 축하합니다!", Toast.LENGTH_SHORT).show()
+                        // 로그인 페이지로 화면전환
+                        startActivity(loginIntent)
+                    }
                 }
-
-                override fun onFailure(call: retrofit2.Call<SignUpResult>, t: Throwable) {
+                override fun onFailure(call: retrofit2.Call<Void>, t: Throwable) {
                     Log.e("회원가입", "실패 : $t")
                 }
             })
