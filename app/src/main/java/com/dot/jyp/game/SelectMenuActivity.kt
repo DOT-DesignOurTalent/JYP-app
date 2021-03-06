@@ -40,6 +40,10 @@ class SelectMenuActivity : AppCompatActivity() {
             getLocation()
             showRestaurantsList()
         }
+        findViewById<Button>(R.id.btn_select_menu_next).setOnClickListener {
+            val nextIntent = Intent(this, ChattingActivity::class.java)
+            startActivity(nextIntent)
+        }
     }
 
     fun getLocation(){
@@ -139,4 +143,5 @@ class SelectMenuActivity : AppCompatActivity() {
         //dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
     }
+
 }

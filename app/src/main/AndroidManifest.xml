@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dot.jyp">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".game.ChattingActivity"></activity>
         <activity android:name=".IntroActivity" />
         <activity android:name=".login.StartActivity">
             <intent-filter>
@@ -19,9 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".login.LoginActivity" />
         <activity android:name=".lobby.LinkActivity" />
-        <activity android:name=".lobby.LobbyActivity"></activity>
+        <activity android:name=".lobby.LobbyActivity" />
         <activity android:name=".game.SelectMenuActivity" />
         <activity android:name=".register.RegisterActivity" />
     </application>
