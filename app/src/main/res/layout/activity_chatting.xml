@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".game.ChattingActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_chatting_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/img_chatting_characters"
+        android:background="@color/colorMainBlue">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_actionbar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="법점"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/img_chatting_characters"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/colorGrey3"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_chatting_actionbar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recycler_chatting_chats"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_chatting_chats"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintTop_toBottomOf="@id/img_chatting_characters"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recycler_chatting_msg_btn"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_chatting_msg_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="8dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/recycler_chatting_chats"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

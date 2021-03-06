@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/text_item_chatting_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="익명의 고라니 : "
+        android:textColor="@color/colorCourtNavy"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <TextView
+        android:id="@+id/text_item_chatting_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="메세지입니다."
+        android:textColor="@color/colorBlack"
+        android:textSize="15dp"/>
+</LinearLayout>
