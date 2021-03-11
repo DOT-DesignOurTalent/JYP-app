@@ -27,50 +27,130 @@
             android:textColor="@color/colorWhite"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_icon"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.15"/>
-
-    <TextView
-        android:id="@+id/text_select_menu_title"
+    <LinearLayout
+        android:id="@+id/layout_select_menu_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="오늘의 재판 안내"
-        android:textSize="20dp"
-        android:textColor="#000000"
-        android:textStyle="bold"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.3"/>
+        app:layout_constraintVertical_bias="0.15">
 
-    <TextView
-        android:id="@+id/text_select_menu_comment"
-        android:layout_gravity="center"
-        android:layout_width="265dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/select_menu_state"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.38"/>
+        <LinearLayout
+            android:id="@+id/layout_select_menu_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_icon"/>
+
+            <TextView
+                android:id="@+id/text_select_menu_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="오늘의 재판 안내"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_select_menu_comment1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/select_menu_state_before"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/layout_select_menu_after"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/text_select_menu_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="메뉴 선정 완료"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_select_menu_comment2"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="238dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/select_menu_state_after"
+                android:textSize="15dp"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:id="@+id/image_select_menu_category1"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_korean"/>
+                <ImageView
+                    android:id="@+id/image_select_menu_category2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/ic_western"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/text_select_menu_category1"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="한식집"/>
+
+                <TextView
+                    android:id="@+id/text_select_menu_category2"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="양식"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/img_select_menu_character"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/ic_character_1"
-        app:layout_constraintTop_toBottomOf="@id/text_select_menu_comment"
+        app:layout_constraintTop_toBottomOf="@id/layout_select_menu_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_select_menu_choice"
@@ -79,7 +159,7 @@
         android:id="@+id/btn_select_menu_choice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="음식점 정하기 😋"
+        android:text="음식점 정하기"
         style="@style/BUTTON_MAIN_ACTIVE"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,12 +168,24 @@
         app:layout_constraintVertical_bias="0.8"/>
 
     <Button
-        android:id="@+id/btn_select_menu_next"
+        android:id="@+id/btn_select_menu_next_inactive"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="다음"
         style="@style/BUTTON_MAIN_INACTIVE"
+        app:layout_constraintTop_toBottomOf="@+id/btn_select_menu_choice"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_select_menu_next_active"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="15dp"
+        android:text="다음"
+        style="@style/BUTTON_MAIN_ACTIVE"
         app:layout_constraintTop_toBottomOf="@+id/btn_select_menu_choice"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
