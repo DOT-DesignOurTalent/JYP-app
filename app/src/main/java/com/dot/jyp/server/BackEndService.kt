@@ -1,6 +1,7 @@
 package com.dot.jyp.server
 
 import com.dot.jyp.model.Account
+import com.dot.jyp.model.UserAccount
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -11,9 +12,9 @@ interface BackEndService {
         @Body account : Account
     ): Call<Void>
 
+    @Headers("Content-Type: application/json")
     @POST("/api/v1/user/login")
     fun logIn(
-        @Field("email") email: String,
-        @Field("passphrase") passphrase: String
-    )
+        @Body user: UserAccount
+    ): Call<Void>
 }
