@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".game.SelectMenuActivity">
-    <androidx.appcompat.widget.Toolbar
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar_select_menu_actionbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -14,18 +15,35 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@color/colorMainBlue">
         <ImageView
+            android:id="@+id/image_select_menu_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_actionbar"/>
+            android:src="@drawable/ic_actionbar"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="8dp"
             android:text="법점"
             android:textSize="17dp"
             android:textStyle="bold"
-            android:textColor="@color/colorWhite"/>
-    </androidx.appcompat.widget.Toolbar>
+            android:textColor="@color/colorWhite"
+            app:layout_constraintLeft_toRightOf="@id/image_select_menu_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/image_select_menu_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_marginRight="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/layout_select_menu_background"
@@ -159,7 +177,7 @@
         android:id="@+id/btn_select_menu_choice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="음식점 정하기"
+        android:text="카테고리 정하기"
         style="@style/BUTTON_MAIN_ACTIVE"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.LoginActivity"/>
-        <activity android:name=".lobby.LinkActivity" />
         <activity android:name=".lobby.LobbyActivity"></activity>
         <activity android:name=".game.SelectMenuActivity" />
         <activity android:name=".register.RegisterActivity" />

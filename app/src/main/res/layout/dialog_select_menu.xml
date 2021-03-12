@@ -4,11 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="@color/colorGrey1"
     app:cardCornerRadius="30dp">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="350dp">
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:background="@color/colorGrey1">
         <ImageView
             android:id="@+id/image_select_dialog_close"
             android:layout_width="30dp"
@@ -118,7 +118,7 @@
                 android:id="@+id/text_dialog_select_category5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="아시안 음식"/>
+                android:text="아시안음식"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/layout_dialog_select_category6"
