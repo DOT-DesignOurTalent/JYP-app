@@ -1,6 +1,6 @@
 package com.dot.jyp.login
 
-import android.content.Context
+import android.accounts.Account
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,11 +8,16 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.dot.jyp.R
 import com.dot.jyp.lobby.LobbyActivity
 import com.dot.jyp.databinding.ActivityLoginBinding
+import com.dot.jyp.model.UserAccount
 import com.dot.jyp.register.RegisterActivity
+import com.dot.jyp.server.RetrofitSingleTon.backEndService
+import retrofit2.Call
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -54,11 +59,22 @@ class LoginActivity : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) { }
         })
 
-        // 임시 로그인 : login -> lobby
+        // 로그인 : login -> lobby
         binding.btnLogin.setOnClickListener {
             val lobbyIntent = Intent(this, LobbyActivity::class.java)
-            startActivity(lobbyIntent)
-
+            val user = UserAccount(binding.edittextLoginEmail.text.toString(), binding.edittextLoginPwd.text.toString())
+            var callPostLogIn = backEndService.logIn(user)
+            callPostLogIn.enqueue(object: retrofit2.Callback<Void>{
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    if(response.code() == 201){
+                        Toast.makeText(applicationContext, "법점에 오신 것을 환영합니다!", Toast.LENGTH_SHORT).show()
+                        startActivity(lobbyIntent)
+                    }
+                }
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Log.e("로그인", "실패 : $t")
+                }
+            })
         }
 
 
@@ -74,7 +90,6 @@ class LoginActivity : AppCompatActivity() {
                 binding.imageLoginAuto.setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.colorGrey2))
             }
         }
-
 
 
         // 회원가입 : login -> register
