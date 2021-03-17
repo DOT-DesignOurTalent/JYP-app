@@ -1,26 +1,14 @@
 package com.dot.jyp.lobby
 
 import android.Manifest
-import android.app.Dialog
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.dot.jyp.R
 import com.dot.jyp.databinding.ActivityLobbyBinding
 import com.dot.jyp.game.SelectMenuActivity
 import com.google.android.material.snackbar.Snackbar
@@ -41,15 +29,25 @@ class LobbyActivity : AppCompatActivity() {
         //------ 퍼미션 요청
         requestPermissions()
 
-        //------ back버튼 처리
-        binding.imageLobbyBack.setOnClickListener {
-            finish()
-        }
-
         //------ 법정생성 클릭
         binding.btnLobbyCreate.setOnClickListener{
-            if(checkPermissions())
-                showDialog()
+            if(checkPermissions()){
+                val intent = Intent(this, SelectMenuActivity::class.java)
+                //로그인 정보체크필요
+                intent.putExtra("selectNum", 2)
+                intent.putExtra("isCreate", true)
+                startActivity(intent)
+            }
+        }
+        //------ 법정입장 클릭
+        binding.btnLobbyEnter.setOnClickListener{
+            if(checkPermissions()){
+                val intent = Intent(this, SelectMenuActivity::class.java)
+                //로그인 정보체크필요
+                intent.putExtra("selectNum", 2)
+                intent.putExtra("isCreate", false)
+                startActivity(intent)
+            }
         }
     }
 
@@ -107,41 +105,6 @@ class LobbyActivity : AppCompatActivity() {
                 requestPermissionList.toArray(array),
                 multiplePermissionsCode
             )
-        }
-    }
-
-    //법정생성 다이얼로그 생성및 호출 함수
-    fun showDialog(){
-        val inflater = LayoutInflater.from(this)
-        val view: View = inflater.inflate(R.layout.dialog_lobby, null)
-        val dialog = Dialog(this)
-        dialog.setContentView(view)
-        dialog.setCanceledOnTouchOutside(true)
-        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.show()
-
-        //------ 닫기버튼 클릭 이벤트 추가
-        view.findViewById<ImageView>(R.id.image_dialog_lobby_close).setOnClickListener {
-            dialog.dismiss()
-        }
-
-        //------ 클립보드 버튼 클릭 이벤트 추가
-        view.findViewById<ImageView>(R.id.image_lobby_dialog_copy).setOnClickListener {
-            val clipboardManager = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-            val clipData = ClipData.newPlainText("code",view.findViewById<TextView>(R.id.text_dialog_lobby_code).text)
-            clipboardManager.setPrimaryClip(clipData)
-
-            //------ 복사가 되었다면 토스트메시지 노출
-            Toast.makeText(this,"코드가 복사되었습니다.",Toast.LENGTH_SHORT).show()
-
-
-        }
-
-        //------ 신청완료 버튼 클릭 이벤트 추가
-        view.findViewById<Button>(R.id.btn_dialog_lobby_enter).setOnClickListener {
-            val intent = Intent(this, SelectMenuActivity::class.java)
-            startActivity(intent)
-            dialog.dismiss()
         }
     }
 }

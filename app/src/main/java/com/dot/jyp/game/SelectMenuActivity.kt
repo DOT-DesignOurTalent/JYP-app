@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dot.jyp.R
 import com.dot.jyp.databinding.ActivitySelectMenuBinding
 import com.dot.jyp.model.HashMapSingleTon.nameToicon
@@ -15,147 +18,129 @@ import com.dot.jyp.model.HashMapSingleTon.nameToicon
 class SelectMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySelectMenuBinding
     private var selectNum : Int = 1
-    private lateinit var selectedItem : ArrayList<String>
+    private var checkCreate : Boolean = false
+    private var checkAllSelect : Boolean = false
+    private var selectItem1 : String = ""
+    private var selectItem2 : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivitySelectMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //------ 뒤로가기 버튼 이벤트 추가
-        binding.imageSelectMenuBack.setOnClickListener {
-            finish()
+        //------ 인텐트 정보 초기화
+        checkCreate = intent.getBooleanExtra("isCreate",false)
+        selectNum = intent.getIntExtra("selectNum", 1)
+
+        //------ 카테고리 정하기 버튼1 이벤트 추가
+        binding.imageSelectMenuButton1.setOnClickListener {
+            showSelectDialog(1)
         }
 
-        //------ 카테고리 정하기 버튼 이벤트 추가
-        binding.btnSelectMenuChoice.setOnClickListener {
-            selectedItem = ArrayList<String>()
-            showDialog()
+        //------ 카테고리 정하기 버튼2 이벤트 추가
+        if(selectNum == 2)
+        {
+            binding.imageSelectMenuButton2.visibility = View.VISIBLE
+            binding.imageSelectMenuButton2.setOnClickListener {
+                showSelectDialog(2)
+            }
         }
 
-        //------ 비활성화된 다음버튼 이벤트 추가
-        binding.btnSelectMenuNextInactive.setOnClickListener {
-            Toast.makeText(this,"먼저 카테고리를 선택해주세요!",Toast.LENGTH_SHORT).show()
+        //------ 다음버튼 이벤트 추가
+        binding.btnSelectMenuNext.setOnClickListener {
+            //------ 다음버튼 비활성화
+            if(!checkAllSelect)
+                Toast.makeText(this,"먼저 카테고리를 선택해주세요!",Toast.LENGTH_SHORT).show()
+            //------ 다음버튼 활성화, 방생성 X
+            else if(!checkCreate)
+                showJoinDialog()
+            //------ 다음버튼 활성화, 방생성 O
+            else{
+                //------ 법점 액티비티 실행 코드 추가필요
+            }
         }
 
-        //------ 활성화된 다음버튼 이벤트 추가
-        binding.btnSelectMenuNextActive.setOnClickListener {
-            Toast.makeText(this,"입장중...",Toast.LENGTH_SHORT).show()
-        }
-        getIntentExtra()
-    }
-
-    fun getIntentExtra(){
-        //------ 이 부분은 intent로 가져와야할 부분!
-        val nickname = "\"잘먹는 스컹크\""
-        val isLogin = true
-        if(isLogin)
-            selectNum = 2
-        binding.textSelectMenuComment1.text = nickname + getString(R.string.select_menu_state_before)
-        binding.textSelectMenuComment2.text = nickname + getString(R.string.select_menu_state_after)
     }
 
     //다이얼로그 설정 함수
-    fun showDialog(){
+    fun showSelectDialog(button : Int){
         val inflater = LayoutInflater.from(this)
         val view: View = inflater.inflate(R.layout.dialog_select_menu, null)
-//        val builder = AlertDialog.Builder(this)
-//        builder.setView(view)
+        val dialog = Dialog(this)
+        val items = ArrayList<CategoryName>()
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyler_item_select_menu)
+        val lm = LinearLayoutManager(this)
+        lateinit var adapter : SelectMenuListAdapter
+
+        //------ 카테코리 항목 초기화
+        items.add(CategoryName("한식", "일식","중식"))
+        items.add(CategoryName("일식", "분식","아시아음식"))
+        items.add(CategoryName("멕시칸", "햄버거","피자"))
+        items.add(CategoryName("치킨", "간식","상관없음"))
+
+        //------ 이미 선택된 카테고리 클릭못하게 조정
+        if(button == 1)
+            adapter = SelectMenuListAdapter(items, selectItem2)
+        else
+            adapter = SelectMenuListAdapter(items, selectItem1)
+
+        //------ 리사이클러뷰 설정 및 다이얼로그 show
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = lm
+        dialog.setContentView(view)
+        dialog.setCanceledOnTouchOutside(true)
+        dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.show()
+
+        //------ 클릭 리스너 설정
+        adapter.setItemClickListener(object : SelectMenuListAdapter.OnItemClickListener{
+            override fun onItemClick(v: View, position: Int, name: String) {
+                //------ 첫번째 음식설정 버튼인 경우
+                if(button == 1) {
+                    binding.imageSelectMenuButton1.setImageResource(nameToicon[name]!!)
+                    selectItem1 = name
+                }
+                //------ 두번째 음식설정 버튼인 경우
+                else {
+                    binding.imageSelectMenuButton2.setImageResource(nameToicon[name]!!)
+                    selectItem2 = name
+                }
+
+                //------ 모두 선택된 경우
+                if(selectItem1 != "" && selectItem2 != ""){
+                    binding.btnSelectMenuNext.setBackgroundResource(R.drawable.btn_blue_200)
+                    binding.btnSelectMenuNext.setTextColor(ContextCompat.getColor(baseContext,R.color.colorWhite))
+                    checkAllSelect = true
+                }
+                dialog.dismiss()
+            }
+
+        })
+        //------ 닫기버튼 클릭 이벤트 추가
+        view.findViewById<ImageView>(R.id.image_select_dialog_close).setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    //법정생성 다이얼로그 생성및 호출 함수
+    fun showJoinDialog(){
+        val inflater = LayoutInflater.from(this)
+        val view: View = inflater.inflate(R.layout.dialog_enter, null)
         val dialog = Dialog(this)
         dialog.setContentView(view)
         dialog.setCanceledOnTouchOutside(true)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.show()
 
-        val categoryName = arrayOf("한식", "양식", "중식", "일식", "아시안 음식", "치킨")
-        val categorys =  ArrayList<LinearLayout>()
-        categorys.add(view.findViewById(R.id.layout_dialog_select_category1))
-        categorys.add(view.findViewById(R.id.layout_dialog_select_category2))
-        categorys.add(view.findViewById(R.id.layout_dialog_select_category3))
-        categorys.add(view.findViewById(R.id.layout_dialog_select_category4))
-        categorys.add(view.findViewById(R.id.layout_dialog_select_category5))
-        categorys.add(view.findViewById(R.id.layout_dialog_select_category6))
-
-        //------ layout 클릭 이벤트 추가
-        for((idx,category) in categorys.withIndex()){
-            category.setOnClickListener {
-                setSelectedItem(categoryName[idx], category)
-            }
-        }
-
         //------ 닫기버튼 클릭 이벤트 추가
-        view.findViewById<ImageView>(R.id.image_select_dialog_close).setOnClickListener {
+        view.findViewById<ImageView>(R.id.image_dialog_lobby_close).setOnClickListener {
             dialog.dismiss()
         }
 
         //------ 신청완료 버튼 클릭 이벤트 추가
-        view.findViewById<Button>(R.id.btn_dialog_select_finish).setOnClickListener {
-            if(selectedItem.size != selectNum)
-                Toast.makeText(this,"$selectNum 개를 선택해주세요!",Toast.LENGTH_SHORT).show()
-            else {
-                changeLayout()
-                dialog.dismiss()
-            }
+        view.findViewById<Button>(R.id.btn_dialog_lobby_enter).setOnClickListener {
+            //------ 법점 액티비티 실행 코드 추가필요
+            dialog.dismiss()
         }
-    }
-
-    //아이템이 이미 선정되었는지 체크하는 함수
-    fun isSelected(name : String) : Boolean{
-        for(category in selectedItem) {
-            if (category == name)
-                return true
-        }
-        return false
-    }
-
-    //------ selectedItem 클릭 이벤트 처리하는 함수
-    fun setSelectedItem(name : String, category : LinearLayout){
-        if(isSelected(name)) {
-            //리스트에서 제거
-            selectedItem.remove(name)
-            category.alpha = 1f
-        }
-        else{
-            if(selectedItem.size < selectNum){
-                //리스트에 추가
-                selectedItem.add(name)
-                category.alpha = 0.5f
-            }
-            else
-                Toast.makeText(this,"$selectNum 개 까지 선택하실 수 있습니다.",Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    //레이아웃 변경하는 함수
-    fun changeLayout(){
-        binding.layoutSelectMenuBefore.visibility = View.GONE
-        binding.layoutSelectMenuAfter.visibility = View.VISIBLE
-
-        //------ 공통 선택 카테고리 설정
-        var name : String = selectedItem.get(0)
-        var resId : Int = nameToicon.get(name)!!
-        binding.imageSelectMenuCategory1.setImageResource(resId)
-        binding.textSelectMenuCategory1.text = name
-
-        //------ 비회원 로그인
-        if(selectNum == 1){
-            binding.imageSelectMenuCategory2.visibility = View.GONE
-            binding.textSelectMenuCategory2.visibility = View.GONE
-        }
-        //------ 회원 로그인
-        else{
-            name = selectedItem.get(1)
-            resId  = nameToicon.get(name)!!
-            binding.imageSelectMenuCategory2.setImageResource(resId)
-            binding.textSelectMenuCategory2.text = name
-            binding.imageSelectMenuCategory2.visibility = View.VISIBLE
-            binding.textSelectMenuCategory2.visibility = View.VISIBLE
-        }
-
-        //------ 버튼 변경
-        binding.btnSelectMenuChoice.text = "다시 정하기"
-        binding.btnSelectMenuNextInactive.visibility = View.GONE
-        binding.btnSelectMenuNextActive.visibility = View.VISIBLE
     }
 }
