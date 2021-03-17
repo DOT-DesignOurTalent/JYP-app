@@ -73,7 +73,7 @@ class SelectMenuActivity : AppCompatActivity() {
         lateinit var adapter : SelectMenuListAdapter
 
         //------ 카테코리 항목 초기화
-        items.add(CategoryName("한식", "일식","중식"))
+        items.add(CategoryName("한식", "양식","중식"))
         items.add(CategoryName("일식", "분식","아시아음식"))
         items.add(CategoryName("멕시칸", "햄버거","피자"))
         items.add(CategoryName("치킨", "간식","상관없음"))
