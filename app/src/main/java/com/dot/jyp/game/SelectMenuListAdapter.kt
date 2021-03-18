@@ -1,6 +1,5 @@
 package com.dot.jyp.game
 
-import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,25 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dot.jyp.R
-import java.util.*
+import com.dot.jyp.model.HashMapSingleTon.nameToicon
 
-class SelectMenuListAdapter(val items: ArrayList<RestaurantInformation>) : RecyclerView.Adapter<SelectMenuListAdapter.ViewHolder>(){
-    //카테고리 - 아이콘 매핑 Map
-    private val textToicon: Map<String, Int> = object : HashMap<String, Int>() {
-        init {
-            put("한식", R.drawable.ic_korean)
-            put("일식", R.drawable.ic_japanese)
-            put("중식", R.drawable.ic_chinese)
-            put("아시아음식", R.drawable.ic_asian)
-            put("치킨", R.drawable.ic_western)
-            put("간식", R.drawable.ic_dessert)
-            put("양식", R.drawable.ic_fastfood)
-        }
-    }
-
+class SelectMenuListAdapter(val items: ArrayList<CategoryName>, val exceptCategoryName: String) : RecyclerView.Adapter<SelectMenuListAdapter.ViewHolder>(){
     //ClickListener
     interface OnItemClickListener {
-        fun onClick(v: View, position: Int)
+        fun onItemClick(v: View, position: Int, name : String)
     }
     private lateinit var itemClickListener : OnItemClickListener
 
@@ -36,10 +22,15 @@ class SelectMenuListAdapter(val items: ArrayList<RestaurantInformation>) : Recyc
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val category = itemView.findViewById<TextView>(R.id.text_item_select_menu_category)
-        val restaurant = itemView.findViewById<TextView>(R.id.text_item_select_menu_restaurants)
-        val layout = itemView.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.constraint_item_select_menu_layout)
-        val icon = itemView.findViewById<ImageView>(R.id.image_item_select_menu_icon)
+        val categoryImage1 = itemView.findViewById<ImageView>(R.id.image_item_select_category1)
+        val categoryImage2 = itemView.findViewById<ImageView>(R.id.image_item_select_category2)
+        val categoryImage3 = itemView.findViewById<ImageView>(R.id.image_item_select_category3)
+
+        val categoryText1 = itemView.findViewById<TextView>(R.id.text_item_select_category1)
+        val categoryText2 = itemView.findViewById<TextView>(R.id.text_item_select_category2)
+        val categoryText3 = itemView.findViewById<TextView>(R.id.text_item_select_category3)
+
+
     }
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -54,19 +45,38 @@ class SelectMenuListAdapter(val items: ArrayList<RestaurantInformation>) : Recyc
     override fun onBindViewHolder(holder: SelectMenuListAdapter.ViewHolder, position: Int) {
         val item = items[position]
 
-        holder.category.text = item.category
-        holder.restaurant.text = item.restaurant
-        holder.layout.setOnClickListener{
-            itemClickListener.onClick(it, position)
+        holder.categoryText1.text = item.category1
+        holder.categoryImage1.setImageResource(nameToicon[item.category1]!!)
+        holder.categoryText2.text = item.category2
+        holder.categoryImage2.setImageResource(nameToicon[item.category2]!!)
+        holder.categoryText3.text = item.category3
+        holder.categoryImage3.setImageResource(nameToicon[item.category3]!!)
+
+        if(exceptCategoryName == item.category1)
+            holder.categoryImage1.alpha = 0.5f
+        else {
+            holder.categoryImage1.setOnClickListener {
+                itemClickListener.onItemClick(it, position, item.category1)
+            }
         }
 
-        //Map에 있는 카테고리인 경우
-        if(textToicon.containsKey(item.category))
-            holder.icon.setImageResource(textToicon.get(item.category)!!)
+        if(exceptCategoryName == item.category2)
+            holder.categoryImage2.alpha = 0.5f
+        else {
+            holder.categoryImage2.setOnClickListener {
+                itemClickListener.onItemClick(it, position, item.category2)
+            }
+        }
+
+        if(exceptCategoryName == item.category3)
+            holder.categoryImage3.alpha = 0.5f
+        else {
+            holder.categoryImage3.setOnClickListener {
+                itemClickListener.onItemClick(it, position, item.category3)
+            }
+        }
     }
 
     override fun getItemCount(): Int = items.size
-
-
 }
-data class RestaurantInformation(val category: String, val restaurant: String)
+data class CategoryName(val category1: String, val category2 : String, val category3 : String )
