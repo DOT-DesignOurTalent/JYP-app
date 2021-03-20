@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="8dp"
+    android:layout_marginLeft="8dp"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/text_item_character_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="안녕"
+        android:textAlignment="center"
+        android:textSize="12dp"
+        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/img_item_character"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorGrey2"
+        android:src="@drawable/ic_character_1"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/text_item_character_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="잘먹는 스컹크"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorCourtNavy"
+        android:textSize="12dp"
+        android:textStyle="bold"/>
+
+</LinearLayout>
