@@ -5,6 +5,6 @@
     <string name="email_hint">이메일을 입력해주세요.</string>
     <string name="pwd_hint">비밀번호를 입력해주세요.</string>
     <string name ="pwd2_hint">비밀번호를 다시 입력해주세요.</string>
-    <string name="select_menu_state_before"> 님은 점심 시간을 낭비하여 점심식사 진행 방해죄 및 점심시간 손괴죄로 아래와 같이 기소되었음을 안내드립니다.</string>
+    <string name="select_menu_state_before">점심 시간을 낭비하여 점심식사 진행 방해죄 및 점심시간 손괴죄로 아래와 같이 기소되었음을 안내드립니다.</string>
     <string name="select_menu_state_after"> 님이 오늘의 점심으로 선정하신 메뉴는 아래와 같습니다.</string>
 </resources>

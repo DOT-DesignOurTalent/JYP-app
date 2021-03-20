@@ -6,27 +6,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".game.SelectMenuActivity">
-    <androidx.appcompat.widget.Toolbar
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolbar_select_menu_actionbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@color/colorMainBlue">
+        app:layout_constraintLeft_toLeftOf="parent">
         <ImageView
+            android:id="@+id/image_select_menu_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_actionbar"/>
+            android:src="@drawable/ic_actionbar"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="8dp"
             android:text="법점"
             android:textSize="17dp"
             android:textStyle="bold"
-            android:textColor="@color/colorWhite"/>
-    </androidx.appcompat.widget.Toolbar>
+            android:textColor="@color/colorMainBlue"
+            app:layout_constraintLeft_toRightOf="@id/image_select_menu_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorGrey1"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_select_menu_actionbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
     <LinearLayout
         android:id="@+id/layout_select_menu_background"
         android:layout_width="wrap_content"
@@ -36,7 +51,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.15">
+        app:layout_constraintVertical_bias="0.2">
 
         <LinearLayout
             android:id="@+id/layout_select_menu_before"
@@ -63,131 +78,58 @@
                 android:id="@+id/text_select_menu_comment1"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_width="265dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/select_menu_state_before"
                 android:textSize="15dp"
                 android:textStyle="bold"/>
         </LinearLayout>
-
         <LinearLayout
-            android:visibility="gone"
-            android:id="@+id/layout_select_menu_after"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
-            <TextView
-                android:id="@+id/text_select_menu_title2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="메뉴 선정 완료"
-                android:textSize="20dp"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/image_select_menu_button1"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_selet_menu_button"/>
 
-            <TextView
-                android:id="@+id/text_select_menu_comment2"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_width="238dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/select_menu_state_after"
-                android:textSize="15dp"
-                android:textStyle="bold"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="30dp">
-
-                <ImageView
-                    android:id="@+id/image_select_menu_category1"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/ic_korean"/>
-                <ImageView
-                    android:id="@+id/image_select_menu_category2"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="30dp"
-                    android:src="@drawable/ic_western"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/text_select_menu_category1"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:text="한식집"/>
-
-                <TextView
-                    android:id="@+id/text_select_menu_category2"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:text="양식"/>
-            </LinearLayout>
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/image_select_menu_button2"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/ic_selet_menu_button"/>
         </LinearLayout>
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/img_select_menu_character"
+        android:id="@+id/image_select_menu_character"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/ic_character_1"
         app:layout_constraintTop_toBottomOf="@id/layout_select_menu_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_select_menu_choice"
+        app:layout_constraintBottom_toTopOf="@id/btn_select_menu_next"
         app:layout_constraintVertical_bias="0"/>
+
     <Button
-        android:id="@+id/btn_select_menu_choice"
+        android:id="@+id/btn_select_menu_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="음식점 정하기"
-        style="@style/BUTTON_MAIN_ACTIVE"
+        android:text="다음"
+        style="@style/BUTTON_MAIN_INACTIVE"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.8"/>
-
-    <Button
-        android:id="@+id/btn_select_menu_next_inactive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="다음"
-        style="@style/BUTTON_MAIN_INACTIVE"
-        app:layout_constraintTop_toBottomOf="@+id/btn_select_menu_choice"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_select_menu_next_active"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginTop="15dp"
-        android:text="다음"
-        style="@style/BUTTON_MAIN_ACTIVE"
-        app:layout_constraintTop_toBottomOf="@+id/btn_select_menu_choice"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintVertical_bias="0.93"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

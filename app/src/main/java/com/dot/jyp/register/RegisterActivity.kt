@@ -1,29 +1,20 @@
 package com.dot.jyp.register
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telecom.Call
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.dot.jyp.R
-import com.dot.jyp.databinding.ActivityLoginBinding
 import com.dot.jyp.databinding.ActivityRegisterBinding
 import com.dot.jyp.login.LoginActivity
 import com.dot.jyp.model.Account
-import com.dot.jyp.model.SignUpResult
-import com.dot.jyp.server.RetrofitSingleTon
 import com.dot.jyp.server.RetrofitSingleTon.backEndService
-import com.google.android.gms.common.api.Response
 import java.util.regex.Pattern
-import javax.security.auth.callback.Callback
 
 class RegisterActivity : AppCompatActivity() {
 
