@@ -60,6 +60,7 @@ class SelectMenuActivity : AppCompatActivity() {
                 //------ 법점 액티비티 실행 코드 추가필요
                 val intent = Intent(this, ChattingActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
 
@@ -145,6 +146,7 @@ class SelectMenuActivity : AppCompatActivity() {
             //------ 법점 액티비티 실행 코드 추가필요
             val intent = Intent(this, ChattingActivity::class.java)
             startActivity(intent)
+            finish()
             dialog.dismiss()
         }
     }

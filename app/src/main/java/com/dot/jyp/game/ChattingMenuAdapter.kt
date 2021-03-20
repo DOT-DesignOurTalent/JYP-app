@@ -24,7 +24,7 @@ class ChattingMenuAdapter(val menus: ArrayList<MenuSelected>):
             "ic_"+menus[position].menu, "drawable", holder.itemView.context.packageName)
         holder.menu.setImageResource(resId)
         if(!menus[position].selected){
-            holder.menu.drawable.alpha = 50
+            holder.menu.alpha = 0.5f
         }
     }
 
