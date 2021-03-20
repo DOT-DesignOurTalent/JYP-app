@@ -7,6 +7,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--TOOL Bar-->
+    <style name="TOOLBAR">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorCourtNavy</item>
+    </style>
+    <style name="TOOLBAR_TITLE">
+        <item name="android:textColor">@color/colorCourtNavy</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">17dp</item>
+        <item name="android:layout_marginLeft">25dp</item>
+    </style>
+    <style name="TOOLBAR_LOGO">
+        <item name="android:src">@drawable/ic_actionbar</item>
+    </style>
+
+
     <!--BUTTON-->
     <style name="BUTTON_MAIN">
         <item name="android:layout_height">50dp</item>
@@ -78,4 +94,9 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="TEXT_CHAT_MESSAGE">
+        <item name="android:textColor">@drawable/btn_text_blue_to_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dp</item>
+    </style>
 </resources>

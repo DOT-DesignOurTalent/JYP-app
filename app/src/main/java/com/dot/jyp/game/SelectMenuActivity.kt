@@ -62,6 +62,9 @@ class SelectMenuActivity : AppCompatActivity() {
         }
         binding.btnSelectMenuNextActive.setOnClickListener {
             Toast.makeText(this,"입장중...",Toast.LENGTH_SHORT).show()
+            // 임시 입장-----------------------------------------------------------------------------
+            var chatIntent = Intent(this, ChattingActivity::class.java)
+            startActivity(chatIntent)
         }
         getIntentExtra()
     }
