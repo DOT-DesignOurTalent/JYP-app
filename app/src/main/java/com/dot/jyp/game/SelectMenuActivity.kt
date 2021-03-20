@@ -19,7 +19,7 @@ import com.dot.jyp.model.HashMapSingleTon.nameToicon
 class SelectMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySelectMenuBinding
     private var selectNum : Int = 1
-    private var checkCreate : Boolean = false
+    private var email : String = ""
     private var checkAllSelect : Boolean = false
     private var selectItem1 : String = ""
     private var selectItem2 : String = ""
@@ -30,7 +30,7 @@ class SelectMenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //------ 인텐트 정보 초기화
-        checkCreate = intent.getBooleanExtra("isCreate",false)
+        email = intent.getStringExtra("email")!!
         selectNum = intent.getIntExtra("selectNum", 1)
 
         //------ 카테고리 정하기 버튼1 이벤트 추가
@@ -39,8 +39,7 @@ class SelectMenuActivity : AppCompatActivity() {
         }
 
         //------ 카테고리 정하기 버튼2 이벤트 추가
-        if(selectNum == 2)
-        {
+        if(selectNum == 2) {
             binding.imageSelectMenuButton2.visibility = View.VISIBLE
             binding.imageSelectMenuButton2.setOnClickListener {
                 showSelectDialog(2)
@@ -53,7 +52,7 @@ class SelectMenuActivity : AppCompatActivity() {
             if(!checkAllSelect)
                 Toast.makeText(this,"먼저 카테고리를 선택해주세요!",Toast.LENGTH_SHORT).show()
             //------ 다음버튼 활성화, 방생성 X
-            else if(!checkCreate)
+            else if(email == "")
                 showJoinDialog()
             //------ 다음버튼 활성화, 방생성 O
             else{
@@ -72,7 +71,7 @@ class SelectMenuActivity : AppCompatActivity() {
         val view: View = inflater.inflate(R.layout.dialog_select_menu, null)
         val dialog = Dialog(this)
         val items = ArrayList<CategoryName>()
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyler_item_select_menu)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyler_select_dialog_menu)
         val lm = LinearLayoutManager(this)
         lateinit var adapter : SelectMenuListAdapter
 
@@ -99,31 +98,45 @@ class SelectMenuActivity : AppCompatActivity() {
         //------ 클릭 리스너 설정
         adapter.setItemClickListener(object : SelectMenuListAdapter.OnItemClickListener{
             override fun onItemClick(v: View, position: Int, name: String) {
-                //------ 첫번째 음식설정 버튼인 경우
-                if(button == 1) {
-                    binding.imageSelectMenuButton1.setImageResource(nameToicon[name]!!)
-                    selectItem1 = name
-                }
-                //------ 두번째 음식설정 버튼인 경우
-                else {
-                    binding.imageSelectMenuButton2.setImageResource(nameToicon[name]!!)
-                    selectItem2 = name
-                }
-
-                //------ 모두 선택된 경우
-                if(selectItem1 != "" && selectItem2 != ""){
-                    binding.btnSelectMenuNext.setBackgroundResource(R.drawable.btn_blue_200)
-                    binding.btnSelectMenuNext.setTextColor(ContextCompat.getColor(baseContext,R.color.colorWhite))
-                    checkAllSelect = true
-                }
+                setSelectMenu(name, button)
                 dialog.dismiss()
             }
-
         })
         //------ 닫기버튼 클릭 이벤트 추가
         view.findViewById<ImageView>(R.id.image_select_dialog_close).setOnClickListener {
             dialog.dismiss()
         }
+        //------ 상관없음 버튼 클릭 이벤트 추가
+        view.findViewById<Button>(R.id.btn_select_dialog_finish).setOnClickListener {
+            setSelectMenu("상관없음",button)
+            dialog.dismiss()
+        }
+    }
+
+    fun setSelectMenu(name : String, button : Int){
+        //------ 첫번째 음식설정 버튼인 경우
+        if(button == 1) {
+            binding.imageSelectMenuButton1.setImageResource(nameToicon[name]!!)
+            selectItem1 = name
+        }
+        //------ 두번째 음식설정 버튼인 경우
+        else {
+            binding.imageSelectMenuButton2.setImageResource(nameToicon[name]!!)
+            selectItem2 = name
+        }
+
+        //------ 모두 선택된 경우
+        if(selectNum ==2 && selectItem1 != "" && selectItem2 != ""){
+            binding.btnSelectMenuNext.setBackgroundResource(R.drawable.btn_blue_200)
+            binding.btnSelectMenuNext.setTextColor(ContextCompat.getColor(baseContext,R.color.colorWhite))
+            checkAllSelect = true
+        }
+        else{
+            binding.btnSelectMenuNext.setBackgroundResource(R.drawable.btn_blue_200)
+            binding.btnSelectMenuNext.setTextColor(ContextCompat.getColor(baseContext,R.color.colorWhite))
+            checkAllSelect = true
+        }
+
     }
 
     //법정생성 다이얼로그 생성및 호출 함수

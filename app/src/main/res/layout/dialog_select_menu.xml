@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyler_item_select_menu"
+            android:id="@+id/recyler_select_dialog_menu"
             android:scrollbars="vertical"
             android:layout_width="wrap_content"
             android:layout_height="300dp"
@@ -28,11 +28,11 @@
             app:layout_constraintRight_toRightOf="parent"/>
 
         <Button
-            android:id="@+id/btn_dialog_select_finish"
+            android:id="@+id/btn_select_dialog_finish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="선정 완료"
+            android:text="상관 없음"
             style="@style/BUTTON_MAIN_ACTIVE"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"

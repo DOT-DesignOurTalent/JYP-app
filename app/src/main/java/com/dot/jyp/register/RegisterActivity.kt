@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.dot.jyp.R
 import com.dot.jyp.databinding.ActivityRegisterBinding
-import com.dot.jyp.login.LoginActivity
 import com.dot.jyp.model.Account
+import com.dot.jyp.model.EmailVerify
 import com.dot.jyp.server.RetrofitSingleTon.backEndService
+import retrofit2.Call
+import retrofit2.Response
 import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
@@ -50,10 +52,31 @@ class RegisterActivity : AppCompatActivity() {
 
         // 이메일 중복 체크 버튼 액션
         binding.btnRegisterEmailCheck.setOnClickListener {
-            binding.textRegisterEmailWrong.text = "사용 가능한 이메일입니다."
-            binding.textRegisterEmailWrong.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorCheck))
-            binding.edittextRegisterEmail.setBackgroundResource(R.drawable.edit_check)
-            isEmailChecked = true
+            val data = EmailVerify(binding.edittextRegisterEmail.text.toString())
+            var callEmailVerify = backEndService.emailVerfy(data)
+
+            callEmailVerify.enqueue(object : retrofit2.Callback<Void>{
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    //------ 정상적인 이메일인 경우
+                    if(response.code() == 201) {
+                        binding.textRegisterEmailWrong.text = "사용 가능한 이메일입니다."
+                        binding.textRegisterEmailWrong.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorCheck))
+                        binding.edittextRegisterEmail.setBackgroundResource(R.drawable.edit_check)
+                        isEmailChecked = true
+                    }
+                    //------ 중복이거나 다른 오류인경우
+                    else{
+                        binding.textRegisterEmailWrong.text = "이미 사용중인 이메일입니다."
+                        binding.textRegisterEmailWrong.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorError))
+                        binding.edittextRegisterEmail.setBackgroundResource(R.drawable.edit_error)
+                        isEmailChecked = false
+                    }
+                }
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Log.e("RegisterActivity","EmailVerify RequestFail")
+                }
+
+            })
         }
 
         //--비밀번호---------------------------------------------------------------------------------
@@ -100,7 +123,6 @@ class RegisterActivity : AppCompatActivity() {
 
         // 임시 회원가입 : register -> login
         binding.btnRegister.setOnClickListener {
-            val loginIntent = Intent(this, LoginActivity::class.java)
             val data = Account(binding.edittextRegisterEmail.text.toString(),binding.edittextRegisterPwd.text.toString())
             var callPostSignUp = backEndService.signUp(data)
             callPostSignUp.enqueue(object: retrofit2.Callback<Void> {
@@ -111,7 +133,7 @@ class RegisterActivity : AppCompatActivity() {
                     if(response.code() == 201) {
                         Toast.makeText(applicationContext, "회원가입을 축하합니다!", Toast.LENGTH_SHORT).show()
                         // 로그인 페이지로 화면전환
-                        startActivity(loginIntent)
+                        finish()
                     }
                 }
                 override fun onFailure(call: retrofit2.Call<Void>, t: Throwable) {

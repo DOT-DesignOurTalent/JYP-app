@@ -11,3 +11,7 @@ data class UserAccount(
     @SerializedName("email") val email : String,
     @SerializedName("passphrase") val passphrase : String
 )
+
+data class EmailVerify(
+    @SerializedName("email") val email : String
+)

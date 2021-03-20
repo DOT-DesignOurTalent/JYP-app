@@ -1,18 +1,19 @@
 package com.dot.jyp.login
 
-import android.accounts.Account
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.dot.jyp.R
-import com.dot.jyp.lobby.LobbyActivity
 import com.dot.jyp.databinding.ActivityLoginBinding
+import com.dot.jyp.lobby.LobbyActivity
 import com.dot.jyp.model.UserAccount
 import com.dot.jyp.register.RegisterActivity
 import com.dot.jyp.server.RetrofitSingleTon.backEndService
@@ -20,7 +21,8 @@ import retrofit2.Call
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
-
+    private lateinit var preferences: SharedPreferences
+    private lateinit var editor : SharedPreferences.Editor
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,18 +30,20 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        preferences = baseContext.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        editor = preferences.edit()
         //--로그인 기능------------------------------------------------------------------------------
         var isEmailChecked = false
-        binding.edittextLoginEmail.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
+        binding.edittextLoginEmail.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {
-                if(binding.edittextLoginEmail.text.toString() != ""){
-                    if(binding.edittextLoginPwd.text.toString() != ""){
+                if (binding.edittextLoginEmail.text.toString() != "") {
+                    if (binding.edittextLoginPwd.text.toString() != "") {
                         activateButton(binding.btnLogin)
                     }
                     isEmailChecked = true
-                }else{
+                } else {
                     inactivateButton(binding.btnLogin)
                     Log.d("버튼", "확인")
                     isEmailChecked = false
@@ -47,16 +51,17 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 
-        binding.edittextLoginPwd.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }
+        binding.edittextLoginPwd.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(isEmailChecked && binding.edittextLoginPwd.text.toString() != ""){
+                if (isEmailChecked && binding.edittextLoginPwd.text.toString() != "") {
                     activateButton(binding.btnLogin)
-                }else{
+                } else {
                     inactivateButton(binding.btnLogin)
                 }
             }
-            override fun afterTextChanged(p0: Editable?) { }
+
+            override fun afterTextChanged(p0: Editable?) {}
         })
 
         // 로그인 : login -> lobby
@@ -64,13 +69,20 @@ class LoginActivity : AppCompatActivity() {
             val lobbyIntent = Intent(this, LobbyActivity::class.java)
             val user = UserAccount(binding.edittextLoginEmail.text.toString(), binding.edittextLoginPwd.text.toString())
             var callPostLogIn = backEndService.logIn(user)
-            callPostLogIn.enqueue(object: retrofit2.Callback<Void>{
+            callPostLogIn.enqueue(object : retrofit2.Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    if(response.code() == 201){
+                    Log.e("로그인", response.toString())
+                    if (response.code() == 200) {
                         Toast.makeText(applicationContext, "법점에 오신 것을 환영합니다!", Toast.LENGTH_SHORT).show()
+                        //------ SharedPreference 등록
+                        editor.putString("email", binding.edittextLoginEmail.text.toString())
+                        editor.commit()
+                        //------ 이전 액티비티 전체 종료
+                        lobbyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         startActivity(lobbyIntent)
                     }
                 }
+
                 override fun onFailure(call: Call<Void>, t: Throwable) {
                     Log.e("로그인", "실패 : $t")
                 }
@@ -99,7 +111,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun inactivateButton(btn :Button) {
+    fun inactivateButton(btn: Button) {
         btn.setBackgroundResource(R.drawable.btn_black_200)
         btn.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorGrey2))
         btn.isEnabled = false

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dot.jyp.R
@@ -30,9 +31,8 @@ class SelectMenuListAdapter(val items: ArrayList<CategoryName>, val exceptCatego
         val categoryText1 = itemView.findViewById<TextView>(R.id.text_item_select_category1)
         val categoryText2 = itemView.findViewById<TextView>(R.id.text_item_select_category2)
         val categoryText3 = itemView.findViewById<TextView>(R.id.text_item_select_category3)
-
-
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -72,12 +72,18 @@ class SelectMenuListAdapter(val items: ArrayList<CategoryName>, val exceptCatego
             }
         }
 
-        if(exceptCategoryName == item.category3)
-            holder.categoryImage3.alpha = 0.5f
+        if(item.category3 == "상관없음"){
+            holder.categoryImage3.visibility = View.GONE
+            holder.categoryText3.visibility = View.GONE
+        }
         else {
-            holder.categoryImage3.alpha = 1f
-            holder.categoryImage3.setOnClickListener {
-                itemClickListener.onItemClick(it, position, item.category3)
+            if (exceptCategoryName == item.category3)
+                holder.categoryImage3.alpha = 0.5f
+            else {
+                holder.categoryImage3.alpha = 1f
+                holder.categoryImage3.setOnClickListener {
+                    itemClickListener.onItemClick(it, position, item.category3)
+                }
             }
         }
     }

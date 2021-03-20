@@ -1,11 +1,14 @@
 package com.dot.jyp.lobby
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -16,6 +19,10 @@ import com.google.android.material.snackbar.Snackbar
 
 class LobbyActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLobbyBinding
+    private lateinit var preferences: SharedPreferences
+    private lateinit var editor : SharedPreferences.Editor
+    private var selectNum : Int = 2
+    private lateinit var email : String
     private val multiplePermissionsCode = 100
     private val requiredPermissions = arrayOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -26,6 +33,15 @@ class LobbyActivity : AppCompatActivity() {
         binding = ActivityLobbyBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //------ SharedPreference 확인
+        preferences = baseContext.getSharedPreferences("Login", Context.MODE_PRIVATE)
+        editor = preferences.edit()
+        email = preferences.getString("email","").toString()
+
+        //------ 비로그인의 경우
+        if(email == "")
+            selectNum--
+
         //------ 퍼미션 요청
         requestPermissions()
 
@@ -34,8 +50,8 @@ class LobbyActivity : AppCompatActivity() {
             if(checkPermissions()){
                 val intent = Intent(this, SelectMenuActivity::class.java)
                 //로그인 정보체크필요
-                intent.putExtra("selectNum", 2)
-                intent.putExtra("isCreate", true)
+                intent.putExtra("selectNum", selectNum)
+                intent.putExtra("email", email)
                 startActivity(intent)
             }
         }
@@ -44,8 +60,8 @@ class LobbyActivity : AppCompatActivity() {
             if(checkPermissions()){
                 val intent = Intent(this, SelectMenuActivity::class.java)
                 //로그인 정보체크필요
-                intent.putExtra("selectNum", 2)
-                intent.putExtra("isCreate", false)
+                intent.putExtra("selectNum", selectNum)
+                intent.putExtra("email", "")
                 startActivity(intent)
             }
         }

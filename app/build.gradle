@@ -51,4 +51,6 @@ dependencies {
     //GPS
     implementation 'com.google.android.gms:play-services-location:17.1.0'
 
+    //websocket
+    compile 'tech.gusavila92:java-android-websocket-client:1.2.2'
 }

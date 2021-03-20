@@ -14,14 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".game.ChattingActivity"></activity>
-        <activity android:name=".IntroActivity" />
-        <activity android:name=".login.StartActivity">
+        <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".login.StartActivity" />
         <activity android:name=".login.LoginActivity"/>
         <activity android:name=".lobby.LobbyActivity"></activity>
         <activity android:name=".game.SelectMenuActivity" />
