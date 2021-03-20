@@ -1,6 +1,7 @@
 package com.dot.jyp.game
 
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -57,6 +58,8 @@ class SelectMenuActivity : AppCompatActivity() {
             //------ 다음버튼 활성화, 방생성 O
             else{
                 //------ 법점 액티비티 실행 코드 추가필요
+                val intent = Intent(this, ChattingActivity::class.java)
+                startActivity(intent)
             }
         }
 
@@ -140,6 +143,8 @@ class SelectMenuActivity : AppCompatActivity() {
         //------ 신청완료 버튼 클릭 이벤트 추가
         view.findViewById<Button>(R.id.btn_dialog_lobby_enter).setOnClickListener {
             //------ 법점 액티비티 실행 코드 추가필요
+            val intent = Intent(this, ChattingActivity::class.java)
+            startActivity(intent)
             dialog.dismiss()
         }
     }
